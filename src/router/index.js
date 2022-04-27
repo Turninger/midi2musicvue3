@@ -4,6 +4,7 @@ import Login from "@/views/Login.vue";
 import Art from '@/views/Art'
 import Home from "@/views/Home";
 import Register from "@/views/Register";
+import Card from "@/views/Card";
 const routes = [
   // {
   //   path: '/',
@@ -34,6 +35,10 @@ const routes = [
   {
     path: '/register',
     component: Register
+  },
+  {
+    path: '/card',
+    component: Card
   },
 ]
 

@@ -9,19 +9,19 @@
         <title>Login</title>
         <link rel="stylesheet" href="nicepage.css" media="screen">
         <link rel="stylesheet" href="Login.css" media="screen">
-        <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
-        <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+<!--        <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>-->
+<!--        <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>-->
         <meta name="generator" content="Nicepage 4.9.1, nicepage.com">
         <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 
 
-        <script type="application/ld+json">{
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "",
-            "logo": "images/gc5af6611333c6aa0517181df2b5535dc11f60978bcfea83c47f673fb920ce25c7ffdc27b7a1a6b1b7bb9759e4bd4279295c2c99d063c1e60b14ba01babe3e8c6_1280.png",
-            "sameAs": []
-        }</script>
+<!--        <script type="application/ld+json">{-->
+<!--            "@context": "http://schema.org",-->
+<!--            "@type": "Organization",-->
+<!--            "name": "",-->
+<!--            "logo": "images/gc5af6611333c6aa0517181df2b5535dc11f60978bcfea83c47f673fb920ce25c7ffdc27b7a1a6b1b7bb9759e4bd4279295c2c99d063c1e60b14ba01babe3e8c6_1280.png",-->
+<!--            "sameAs": []-->
+<!--        }</script>-->
         <meta name="theme-color" content="#4340ea">
         <meta property="og:title" content="Login">
         <meta property="og:type" content="website">
@@ -77,7 +77,7 @@
             </div>
             <div class="u-form u-login-control u-form-1">
                 <!--                拦截刷新，构造登录方法-->
-                <form v-model:users  action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+                <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
                     <div class="u-form-group u-form-name">
                         <label for="username-a30d" class="u-label">输入用户名 *</label>
                         <input v-model="users.username" type="text" placeholder="用户名" id="username-a30d" name="username" class="u-border-grey-30 u-input u-input-rectangle u-input-1" required="">

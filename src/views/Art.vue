@@ -10,8 +10,8 @@
         <title>Art</title>
         <link rel="stylesheet" href="nicepage.css" media="screen">
         <link rel="stylesheet" href="Art.css" media="screen">
-        <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
-        <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+<!--        <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>-->
+<!--        <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>-->
         <meta name="generator" content="Nicepage 4.9.1, nicepage.com">
         <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
         <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i">
@@ -19,13 +19,13 @@
 
 
 
-        <script type="application/ld+json">{
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "",
-            "logo": "../../public/images/gc5af6611333c6aa0517181df2b5535dc11f60978bcfea83c47f673fb920ce25c7ffdc27b7a1a6b1b7bb9759e4bd4279295c2c99d063c1e60b14ba01babe3e8c6_1280.png",
-            "sameAs": []
-        }</script>
+<!--        <script type="application/ld+json">{-->
+<!--            "@context": "http://schema.org",-->
+<!--            "@type": "Organization",-->
+<!--            "name": "",-->
+<!--            "logo": "../../public/images/gc5af6611333c6aa0517181df2b5535dc11f60978bcfea83c47f673fb920ce25c7ffdc27b7a1a6b1b7bb9759e4bd4279295c2c99d063c1e60b14ba01babe3e8c6_1280.png",-->
+<!--            "sameAs": []-->
+<!--        }</script>-->
         <meta name="theme-color" content="#4340ea">
         <meta property="og:title" content="Art">
         <meta property="og:type" content="website">
