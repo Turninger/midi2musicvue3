@@ -10,8 +10,8 @@
         <title>Home</title>
         <link rel="stylesheet" href="nicepage.css" media="screen">
 <!--        <link rel="stylesheet" href="Home.css" media="screen">-->
-        <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
-        <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+<!--        <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>-->
+<!--        <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>-->
         <meta name="generator" content="Nicepage 4.9.1, nicepage.com">
         <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 
@@ -20,13 +20,13 @@
 
 
 
-        <script type="application/ld+json">{
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "",
-            "logo": "../../public/images/gc5af6611333c6aa0517181df2b5535dc11f60978bcfea83c47f673fb920ce25c7ffdc27b7a1a6b1b7bb9759e4bd4279295c2c99d063c1e60b14ba01babe3e8c6_1280.png",
-            "sameAs": []
-        }</script>
+<!--        <script type="application/ld+json">{-->
+<!--            "@context": "http://schema.org",-->
+<!--            "@type": "Organization",-->
+<!--            "name": "",-->
+<!--            "logo": "../../public/images/gc5af6611333c6aa0517181df2b5535dc11f60978bcfea83c47f673fb920ce25c7ffdc27b7a1a6b1b7bb9759e4bd4279295c2c99d063c1e60b14ba01babe3e8c6_1280.png",-->
+<!--            "sameAs": []-->
+<!--        }</script>-->
         <meta name="theme-color" content="#4340ea">
         <meta property="og:title" content="Home">
         <meta property="og:type" content="website">
@@ -82,21 +82,7 @@
                                     :canv-width="350"
                                     :audio-controls="false"
                             ></av-bars>
-<!--                            <div>-->
-<!--                                <img class="pic" src="../../public/images/1.jpg">-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                                <audio ref="audio"-->
-<!--                                       @pause="onPause"-->
-<!--                                       @play="onPlay"-->
-<!--                                       @timeupdate="onTimeupdate"-->
-<!--                                       @loadedmetadata="onLoadedmetadata"-->
 
-<!--                                       :src="audio.src"-->
-<!--                                       controls="controls">-->
-
-<!--                                </audio>-->
-<!--                            </div>-->
                         </div>
 
                         <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
@@ -121,33 +107,33 @@
         <el-carousel class="u-carousel u-slide u-block-3462-1" arrow="always" height="800px">
             <!--        走马灯1-->
             <el-carousel-item>
-                <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-1" src="" data-image-width="1280" data-image-height="800">
-                    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                        <h1 class="u-text u-text-default u-title u-text-1">Piano</h1>
+                <div  class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-1 carousel_father_position" src="" data-image-width="1280" data-image-height="800px">
+                    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1 ">
+                        <h1 style="margin-top: 200px" class="u-text u-text-default u-title u-text-1 carousel_content">Piano</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">使用钢琴来演奏我们的测试曲目《欢乐颂》</p>
-                        <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
+                        <a @click="setPiano" href="#page4"  class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
             <!--        走马灯2-->
             <el-carousel-item>
 
-                <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-2" src="" data-image-width="1280" data-image-height="853">
-                    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                        <h1 class="u-text u-text-default u-title u-text-1">Violin</h1>
+                <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-2 carousel_father_position" src="" data-image-width="1280" data-image-height="853">
+                    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1 ">
+                        <h1 style="margin-top: 200px" class="u-text u-text-default u-title u-text-1  carousel_content">Violin</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 使用小提琴来演奏我们的测试曲目《欢乐颂》</p>
-                        <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
+                        <a @click="setViolin" href="#page4" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
                     </div>
                 </div>
 
             </el-carousel-item>
             <!--        走马灯3-->
             <el-carousel-item>
-                <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-3" src="" data-image-width="1280" data-image-height="853">
+                <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-3 carousel_father_position" src="" data-image-width="1280" data-image-height="853">
                     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                        <h1 class="u-text u-text-default u-title u-text-1">Bass</h1>
+                        <h1 style="margin-top: 200px" class="u-text u-text-default u-title u-text-1  carousel_content">Bass</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-                        <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
+                        <a href="#page4" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
                     </div>
                 </div>
 
@@ -155,79 +141,65 @@
             <!--        走马灯4-->
             <el-carousel-item>
 
-                <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-4" src="" data-image-width="1280" data-image-height="853">
+                <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-4 carousel_father_position" src="" data-image-width="1280" data-image-height="853">
                     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                        <h1 class="u-text u-text-default u-title u-text-1">Bass</h1>
+                        <h1 style="margin-top: 200px" class="u-text u-text-default u-title u-text-1  carousel_content">Bass</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-                        <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
+                        <a @click="commitTransform" href="#page4" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
+
         </el-carousel>
 
     </section>
 
-<!--    <section class="u-carousel u-slide u-block-3462-1" src="" data-image-width="1280" data-image-height="853" id="carousel_eaed" data-interval="5000" data-u-ride="carousel">-->
-<!--        <ol class="u-absolute-hcenter u-carousel-indicators u-block-3462-2">-->
-<!--            <li data-u-target="#carousel_eaed" class="u-active u-grey-30" data-u-slide-to="0"></li>-->
-<!--            <li data-u-target="#carousel_eaed" class="u-grey-30" data-u-slide-to="1"></li>-->
-<!--            <li data-u-target="#carousel_eaed" class="u-grey-30" data-u-slide-to="2"></li>-->
-<!--            <li data-u-target="#carousel_eaed" class="u-grey-30" data-u-slide-to="3"></li>-->
-<!--        </ol>-->
-<!--&lt;!&ndash;        走马灯 NO.1&ndash;&gt;-->
-<!--        <div class="u-carousel-inner" role="listbox">-->
-<!--            <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-1" src="" data-image-width="1280" data-image-height="800">-->
-<!--                <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">-->
-<!--                    <h1 class="u-text u-text-default u-title u-text-1">Piano</h1>-->
-<!--                    <p class="u-large-text u-text u-text-default u-text-variant u-text-2">使用钢琴来演奏我们的测试曲目《欢乐颂》</p>-->
-<!--                    <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;        走马灯 NO.2&ndash;&gt;-->
-<!--            <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-2" src="" data-image-width="1280" data-image-height="853">-->
-<!--                <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">-->
-<!--                    <h1 class="u-text u-text-default u-title u-text-1">Violin</h1>-->
-<!--                    <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 使用小提琴来演奏我们的测试曲目《欢乐颂》</p>-->
-<!--                    <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;        走马灯 NO.3&ndash;&gt;-->
-<!--            <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-3" src="" data-image-width="1280" data-image-height="853">-->
-<!--                <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">-->
-<!--                    <h1 class="u-text u-text-default u-title u-text-1">Bass</h1>-->
-<!--                    <p class="u-large-text u-text u-text-default u-text-variant u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>-->
-<!--                    <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;        走马灯 NO.4&ndash;&gt;-->
-<!--            <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-4" src="" data-image-width="1280" data-image-height="853">-->
-<!--                <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">-->
-<!--                    <h1 class="u-text u-text-default u-title u-text-1">Bass</h1>-->
-<!--                    <p class="u-large-text u-text u-text-default u-text-variant u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>-->
-<!--                    <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-text-grey-30 u-block-3462-3" href="#carousel_eaed" role="button" data-u-slide="prev">-->
-<!--        <span aria-hidden="true">-->
-<!--          <svg viewBox="0 0 477.175 477.175"><path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225-->
-<!--                    c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"></path></svg>-->
-<!--        </span>-->
-<!--            <span class="sr-only">Previous</span>-->
-<!--        </a>-->
-<!--        <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-text-grey-30 u-block-3462-4" href="#carousel_eaed" role="button" data-u-slide="next">-->
-<!--        <span aria-hidden="true">-->
-<!--          <svg viewBox="0 0 477.175 477.175"><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5-->
-<!--                    c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z"></path></svg>-->
-<!--        </span>-->
-<!--            <span class="sr-only">Next</span>-->
-<!--        </a>-->
-<!--    </section>-->
+    <!--    第4页 展示结果   -->
+    <section class="u-align-left u-clearfix u-image u-shading u-section-2" src="" data-image-width="1280" data-image-height="960" id="page4">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="u-clearfix u-expanded-width u-gutter-50 u-layout-wrap u-layout-wrap-1">
+
+
+                <div class="u-layout">
+                    <div class="u-layout-row">
+
+                        <!--音乐播放组件-->
+
+                        <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
+                            <av-bars
+                                    caps-color="#FFF"
+                                    :bar-color="['#b381ff', '#e219ff', '#ff1e9b','#ffd498']"
+                                    canv-fill-color="#000"
+                                    :caps-height="20"
+                                    :audio-src="audio.src"
+                                    audio-class="myAudio"
+                                    :canv-height="400"
+                                    :canv-width="350"
+                                    :audio-controls="false"
+                            ></av-bars>
+                        </div>
+
+                        <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                            <div class="u-container-layout u-container-layout-2">
+                                <h2 class="u-text u-text-1">试听《欢乐颂》MIDI</h2>
+                                <p class="u-text u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                                <!--                                播放《欢乐颂》MIDI-->
+                                <a @click="play" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-btn-1">播放</a>
+                                <a @click="pause" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-btn-1">暂停</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <section class="u-align-left u-clearfix u-image u-shading u-section-4" src="" data-image-width="1280" data-image-height="853" id="sec-c75b">
         <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
             <h1 class="u-text u-text-default u-title u-text-1">Easy to use</h1>
             <p class="u-large-text u-text u-text-variant u-text-2">上传midi文件，生成你的音乐！</p>
-            <a href="Art.html#sec-7230" data-page-id="1746308" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-btn-1">Have a Try！</a>
+            <a href="/art" data-page-id="1746308" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-btn-1">Have a Try！</a>
         </div>
     </section>
     <section class="u-align-left u-clearfix u-image u-shading u-section-5" src="" data-image-width="256" data-image-height="256" id="sec-55d6">
@@ -255,11 +227,14 @@
 </template>
 
 <script>
-
+    const axios = require('axios');
     export default {
         name: "Home",
         data () {
             return {
+                //演奏的乐器
+                instrument:'',
+                //音频播放
                 audio: {
                     // 该字段是音频是否处于播放状态的属性
                     playing: false,
@@ -267,7 +242,7 @@
                     currentTime: 0,
                     // 音频最大播放时长
                     maxTime: 0,
-                    src:require("../../public/audio/RunningWithTheWolves.mp3")
+                    src:require("../../public/audio/0_violin.wav")
                 }
             }
         },
@@ -280,6 +255,23 @@
             },
             pause() {
                 this.audioElement.pause();
+            },
+            setPiano(){
+                this.instrument='piano'
+                console.log(this.instrument)
+            },
+            setViolin(){
+                this.instrument='violin'
+                console.log(this.instrument)
+                axios.post('http:localhost:8182/')
+            },
+
+            setBass(){
+                this.instrument='piano'
+                console.log(this.instrument)
+            },
+            commitTransform(event){
+                console.log(this.instrument)
             }
         },
 
@@ -719,7 +711,7 @@
             font-size: 3.75rem;
         }
     } .u-section-4 {
-          background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../public/images/g1664cfb571b334defb118c7f6f920219f2f0e2421d113c4c902daef7be4e2accc8ff9540ddb5d943142822c5dba60eebdd2a0b07ab9b5347779f23c2044b2062_1280.jpg");
+          background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../public/images/g8165984174726a6207fbf1dddad68862a5a011b991e639a300fc09eb9482938851d2b3fcf9bb2bc1788f257af953595a0f9e9a7ba5e007b30f0736765a923560_1280.jpg");
           background-position: 50% 50%;
       }
 
@@ -844,4 +836,13 @@
         margin-right: 0;
         margin-left: 0;
     }
+
+    .carousel_father_position{
+        height: 800px;
+        display: table;
+    }
+    .carousel_son_position{
+        display:table-cell;
+    }
+    .carousel_content{    }
 </style>
