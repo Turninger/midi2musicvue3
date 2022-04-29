@@ -1,12 +1,14 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/art">Art</router-link>
-    <p class="u-text-login">
-      <router-link to="/login" class="u-text-login" data-page-id="1750248">登录
-      </router-link>
-    </p>
+    <router-link to="/" class="nav_home">Home</router-link> |
+    <router-link to="/about" class="nav_gallery">About</router-link> |
+    <router-link to="/art" class="nav_art">Art</router-link>
+    <div  class="u-text-login">
+      <a to="/login" class="u-text-login" data-page-id="1750248">登录
+      </a>
+    </div>
+
+
   </nav>
   <router-view/>
 </template>
@@ -142,7 +144,18 @@
   }
   .u-text-login{
     color: #FFFFFF;
-    margin-left: 500px;
+    position: fixed;
+    right: 50px;
+  }
+  .nav_art{
+    font-size: 1.2rem;
+  }
+  .nav_home{
+    font-size: 1.5rem;
+
+  }
+  .nav_gallery{
+    font-size: 1.2rem;
   }
 
 
