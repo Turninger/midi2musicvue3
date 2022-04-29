@@ -35,8 +35,14 @@
 
     <section class="u-clearfix u-image u-section-1" id="sec-7eb1">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <h2 class="u-text u-text-body-alt-color u-text-1">Live music and&nbsp;<br>Concert tickets
+<!--            <h2  class="u-text u-text-body-alt-color u-text-1">Live music and&nbsp;<br>Concert tickets-->
+<!--            </h2>-->
+            <h2 style="text-align: left" class="u-text u-text-body-alt-color u-text-1">
+                <vuetyped :strings="['使用 <br> MIDI-DDSP <br> 演奏你的曲目！']" :loop="true" :smart-backspace="true">
+                    <div class="typing" />
+                </vuetyped>
             </h2>
+
             <h3 class="u-text u-text-body-alt-color u-text-2">ONLINE MUSIC EVENTS</h3>
         </div>
     </section>
@@ -232,6 +238,12 @@
         name: "Home",
         data () {
             return {
+                //第一页实现打字机效果
+                typewriter:'',
+                i:0,
+                timer:0,
+                text:"Live music and",
+
                 //演奏的乐器
                 instrument:'',
                 //音频播放
@@ -248,8 +260,10 @@
         },
         mounted() {
             this.audioElement=document.querySelector(".myAudio")
+
         },
         methods: {
+
             play() {
                 this.audioElement.play();
             },

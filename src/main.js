@@ -6,6 +6,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import axios from "axios";
 import AudioVisual from 'vue-audio-visual'
+import vuetyped from 'vue3typed'
 
 createApp(App)
     .use(store)
@@ -13,4 +14,5 @@ createApp(App)
     .use(ElementPlus)
     // .use(axios)
     .use(AudioVisual)
+    .use(vuetyped)
     .mount('#app')
