@@ -121,7 +121,7 @@
                     </div>
                 </div>
             </el-carousel-item>
-            <!--        走马灯2-->
+            <!--        走马灯2 小提琴     -->
             <el-carousel-item>
 
                 <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-2 carousel_father_position" src="" data-image-width="1280" data-image-height="853">
@@ -133,25 +133,25 @@
                 </div>
 
             </el-carousel-item>
-            <!--        走马灯3-->
+            <!--        走马灯3 吉他     -->
             <el-carousel-item>
                 <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-3 carousel_father_position" src="" data-image-width="1280" data-image-height="853">
                     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                        <h1 style="margin-top: 200px" class="u-text u-text-default u-title u-text-1  carousel_content">Bass</h1>
+                        <h1 style="margin-top: 200px" class="u-text u-text-default u-title u-text-1  carousel_content">Guitar</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-                        <a href="#page4" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
+                        <a @click="setGuitar" href="#page4" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
                     </div>
                 </div>
 
             </el-carousel-item>
-            <!--        走马灯4-->
+            <!--        走马灯4 长笛      -->
             <el-carousel-item>
 
                 <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-4 carousel_father_position" src="" data-image-width="1280" data-image-height="853">
                     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                        <h1 style="margin-top: 200px" class="u-text u-text-default u-title u-text-1  carousel_content">Bass</h1>
+                        <h1 style="margin-top: 200px" class="u-text u-text-default u-title u-text-1  carousel_content">Flute</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-                        <a @click="commitTransform" href="#page4" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
+                        <a @click="setFlute" href="#page4" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -161,7 +161,7 @@
     </section>
 
     <!--    第4页 展示结果   -->
-    <section class="u-align-left u-clearfix u-image u-shading u-section-2" src="" data-image-width="1280" data-image-height="960" id="page4">
+    <section class="u-align-left u-clearfix u-image u-shading u-section-2copy" src="" data-image-width="1280" data-image-height="960" id="page4">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-clearfix u-expanded-width u-gutter-50 u-layout-wrap u-layout-wrap-1">
 
@@ -177,8 +177,8 @@
                                     :bar-color="['#b381ff', '#e219ff', '#ff1e9b','#ffd498']"
                                     canv-fill-color="#000"
                                     :caps-height="20"
-                                    :audio-src="audio.src"
-                                    audio-class="myAudio"
+                                    :audio-src="audioResult.src"
+                                    audio-class="myAudioResult"
                                     :canv-height="400"
                                     :canv-width="350"
                                     :audio-controls="false"
@@ -190,8 +190,8 @@
                                 <h2 class="u-text u-text-1">试听《欢乐颂》MIDI</h2>
                                 <p class="u-text u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
                                 <!--                                播放《欢乐颂》MIDI-->
-                                <a @click="play" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-btn-1">播放</a>
-                                <a @click="pause" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-btn-1">暂停</a>
+                                <a @click="resultPlay" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-btn-1">播放</a>
+                                <a @click="resultPause" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-btn-1">暂停</a>
                             </div>
                         </div>
                     </div>
@@ -246,6 +246,9 @@
 
                 //演奏的乐器
                 instrument:'',
+
+                //获取当前时间
+                curTime:'',
                 //音频播放
                 audio: {
                     // 该字段是音频是否处于播放状态的属性
@@ -255,34 +258,103 @@
                     // 音频最大播放时长
                     maxTime: 0,
                     src:require("../../public/audio/0_violin.wav")
+                },
+                audioResult:{
+                    src:require("../../public/audio/RunningWithTheWolves.mp3")
                 }
             }
         },
         mounted() {
             this.audioElement=document.querySelector(".myAudio")
+            this.audioResultElement=document.querySelector(".myAudioResult")
 
         },
         methods: {
-
+            //音乐播放
             play() {
                 this.audioElement.play();
             },
+            //音乐暂停
             pause() {
                 this.audioElement.pause();
             },
-            setPiano(){
-                this.instrument='piano'
-                console.log(this.instrument)
+            //-----获取音乐结果------
+            //音乐播放
+            resultPlay() {
+                this.audioResultElement.play();
             },
-            setViolin(){
-                this.instrument='violin'
-                console.log(this.instrument)
-                axios.post('http:localhost:8182/')
+            //音乐暂停
+            resultPause() {
+                this.audioResultElement.pause();
             },
 
-            setBass(){
+            //-----设置演奏的乐器------
+
+            //获取当前时间 yy/mm/dd/hh:mf:ss
+            getCurrentTime() {
+                //获取当前时间并打印
+                var _this = this;
+                let yy = new Date().getFullYear();
+                let mm = new Date().getMonth()+1;
+                let dd = new Date().getDate();
+                let hh = new Date().getHours();
+                let mf = new Date().getMinutes()<10 ? '0'+new Date().getMinutes() : new Date().getMinutes();
+                let ss = new Date().getSeconds()<10 ? '0'+new Date().getSeconds() : new Date().getSeconds();
+                _this.gettime = yy+'/'+mm+'/'+dd+'/'+hh+':'+mf+':'+ss;
+                this.curTime=_this.gettime;
+                //console.log(_this.gettime)
+            },
+            //吉他
+            setPiano(){
                 this.instrument='piano'
+                this.getCurrentTime();
                 console.log(this.instrument)
+                axios.post('http://localhost:8182/midi/midiSynthesize', {
+                    instrument:this.instrument,
+                    curTime: this.curTime
+                })
+                    .then((resp)=>{
+                    console.log(resp);
+
+                })
+                .catch(function (error){
+                    console.log(error);
+                })
+            },
+            //小提琴
+            setViolin(){
+                //设置当前乐器为吉他
+                this.instrument='violin'
+                //console.log(this.instrument)
+                //发送请求到后端
+                axios.post('http://localhost:8182/midi/midiSynthesize',{instrument:this.instrument}).then((resp)=>{
+                    console.log(resp)
+                })
+            },
+            //吉他
+            setGuitar(){
+                this.instrument='guitar'
+                //console.log(this.instrument)
+                axios.post('http://localhost:8182/midi/midiSynthesize',{instrument:this.instrument}).then((resp)=>{
+                    console.log(resp)
+                })
+            },
+            setFlute(){
+                //长笛
+                this.instrument='flute'
+                //console.log(this.instrument)
+                axios.post('http://localhost:8182/midi/midiSynthesize',{instrument:this.instrument}).then((resp)=>{
+                    console.log(resp)
+                })
+            },
+            //低音提琴
+            setBass(){
+                this.instrument='double bass'
+                //console.log(this.instrument)
+                axios.post('http://localhost:8182/midi/midiSynthesize',{instrument:this.instrument}).then((resp)=>{
+                    console.log(resp)
+                })
+
             },
             commitTransform(event){
                 console.log(this.instrument)
@@ -859,4 +931,126 @@
         display:table-cell;
     }
     .carousel_content{    }
+
+    .u-section-2copy{
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../public/images/record-player-1851576_1920.jpg");
+        background-position: 50% 50%;
+    }
+    .u-section-2copy .u-sheet-1 {
+        min-height: 800px;
+    }
+
+    .u-section-2copy .u-layout-wrap-1 {
+        margin-top: 141px;
+        margin-bottom: 60px;
+    }
+
+    .u-section-2copy .u-layout-cell-1 {
+        min-height: 451px;
+    }
+
+    .u-section-2copy .u-container-layout-1 {
+        padding: 20px;
+    }
+
+    .u-section-2copy .embed-responsive-1 {
+        position: absolute;
+        width: 178%;
+        left: -39%;
+        height: 178%;
+        top: -39%;
+    }
+
+    .u-section-2copy .u-layout-cell-2 {
+        min-height: 451px;
+    }
+
+    .u-section-2copy .u-container-layout-2 {
+        padding: 20px 60px;
+    }
+
+    .u-section-2copy .u-text-1 {
+        margin: 123px 0 0;
+    }
+
+    .u-section-2copy .u-text-2 {
+        margin: 20px 0 0;
+    }
+
+    .u-section-2copy .u-btn-1 {
+        background-image: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-style: solid;
+        margin: 20px auto 0 20px;
+    }
+
+    @media (max-width: 1199px) {
+        .u-section-2copy .u-sheet-1 {
+            min-height: 581px;
+        }
+
+        .u-section-2copy .u-layout-cell-1 {
+            min-height: 372px;
+        }
+
+        .u-section-2copy .u-container-layout-2 {
+            padding-left: 49px;
+            padding-right: 49px;
+        }
+
+        .u-section-2copy .u-btn-1 {
+            margin-left: 0;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .u-section-2copy .u-sheet-1 {
+            min-height: 494px;
+        }
+
+        .u-section-2copy .u-layout-cell-1 {
+            min-height: 285px;
+        }
+
+        .u-section-2copy .u-container-layout-1 {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .u-section-2copy .u-container-layout-2 {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .u-section-2copy .u-sheet-1 {
+            min-height: 737px;
+        }
+
+        .u-section-2copy .u-layout-cell-1 {
+            min-height: 428px;
+        }
+
+        .u-section-2copy .u-container-layout-1 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .u-section-2copy.u-container-layout-2 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .u-section-2copy .u-sheet-1 {
+            min-height: 578px;
+        }
+
+        .u-section-2copy .u-layout-cell-1 {
+            min-height: 269px;
+        }
+    }
 </style>
