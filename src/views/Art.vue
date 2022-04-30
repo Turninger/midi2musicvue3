@@ -600,5 +600,9 @@
             min-height: 403px;
         }
     }
+    .u-section-4 {
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("../../public/images/record-player-1851576_1920.jpg");
+        background-position: 50% 50%;
+    }
 
 </style>
