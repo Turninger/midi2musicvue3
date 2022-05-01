@@ -78,11 +78,22 @@
             :audio-src="audio.src"
     ></av-bars>
 
+    <div class="circular-plus">
+        <Progress value="16.88">
+            <!-- <template v-slot:footer>
+              <b>goood</b>
+            </template>-->
+        </Progress>
+    </div>
+
+
+
 
     <!--   src="https://wdd.js.org/element-audio/static/falling-star.mp3"-->
 </template>
 
 <script>
+    import Progress from "easy-circular-progress";
     function realFormatSecond(second) {
         var secondType = typeof second
 
@@ -722,5 +733,18 @@
         height: 299px;
         margin-right: 0;
         margin-left: 0;
+    }
+
+    .circular-plus{
+        font-family: "Avenir", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        height: 100vh;
+        color: #fff;
+        background: #3e423a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
