@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "core-js": "^3.8.3",
+    "easy-circular-progress": "^1.0.4",
     "element-plus": "^2.1.10",
     "vue": "^3.2.13",
     "vue-audio-visual": "^2.4.1",

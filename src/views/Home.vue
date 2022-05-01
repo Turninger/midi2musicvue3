@@ -300,7 +300,7 @@
                 let hh = new Date().getHours();
                 let mf = new Date().getMinutes()<10 ? '0'+new Date().getMinutes() : new Date().getMinutes();
                 let ss = new Date().getSeconds()<10 ? '0'+new Date().getSeconds() : new Date().getSeconds();
-                _this.gettime = yy+'/'+mm+'/'+dd+'/'+hh+':'+mf+':'+ss;
+                _this.gettime = yy+'-'+mm+'-'+dd+'-'+hh+'-'+mf+'-'+ss;
                 this.curTime=_this.gettime;
                 //console.log(_this.gettime)
             },
@@ -342,10 +342,19 @@
             setFlute(){
                 //长笛
                 this.instrument='flute'
-                //console.log(this.instrument)
-                axios.post('http://localhost:8182/midi/midiSynthesize',{instrument:this.instrument}).then((resp)=>{
-                    console.log(resp)
+                this.getCurrentTime();
+                console.log(this.instrument)
+                axios.post('http://localhost:8182/midi/midiSynthesize', {
+                    instrument:this.instrument,
+                    curTime: this.curTime
                 })
+                    .then((resp)=>{
+                        console.log(resp);
+
+                    })
+                    .catch(function (error){
+                        console.log(error);
+                    })
             },
             //低音提琴
             setBass(){

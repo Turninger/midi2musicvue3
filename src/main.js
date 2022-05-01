@@ -7,6 +7,7 @@ import 'element-plus/dist/index.css'
 import axios from "axios";
 import AudioVisual from 'vue-audio-visual'
 import vuetyped from 'vue3typed'
+import Progress from "easy-circular-progress";
 
 createApp(App)
     .use(store)
@@ -15,4 +16,5 @@ createApp(App)
     // .use(axios)
     .use(AudioVisual)
     .use(vuetyped)
+    .use(Progress)
     .mount('#app')
