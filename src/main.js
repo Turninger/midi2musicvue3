@@ -8,6 +8,10 @@ import axios from "axios";
 import AudioVisual from 'vue-audio-visual'
 import vuetyped from 'vue3typed'
 import Progress from "easy-circular-progress";
+import Nprogress from "nprogress"
+import 'nprogress/nprogress.css'
+import veProgress from "vue-ellipse-progress";
+
 
 createApp(App)
     .use(store)
@@ -16,5 +20,7 @@ createApp(App)
     // .use(axios)
     .use(AudioVisual)
     .use(vuetyped)
-    .use(Progress)
+    // .use(Progress)
+    .use(Nprogress)
+    // .use(veProgress)
     .mount('#app')

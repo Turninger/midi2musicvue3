@@ -5,6 +5,7 @@ import Art from '@/views/Art'
 import Home from "@/views/Home";
 import Register from "@/views/Register";
 import Card from "@/views/Card";
+import Creation from "@/views/Creation";
 const routes = [
   // {
   //   path: '/',
@@ -39,6 +40,10 @@ const routes = [
   {
     path: '/card',
     component: Card
+  },
+  {
+    path: '/creation',
+    component: Creation
   },
 ]
 
