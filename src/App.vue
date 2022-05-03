@@ -2,7 +2,8 @@
   <nav>
     <router-link to="/" class="nav_home">Home</router-link> |
     <router-link to="/about" class="nav_gallery">About</router-link> |
-    <router-link to="/art" class="nav_art">Art</router-link>
+    <router-link to="/art" class="nav_art">Art</router-link> |
+    <router-link to="/creation" class="nav_art">Creation</router-link>
     <div  class="u-text-login">
       <a to="/login" class="u-text-login" data-page-id="1750248">登录
       </a>
@@ -13,6 +14,9 @@
   <router-view/>
 </template>
 <script>
+  import NProgress from 'nprogress'
+  import 'nprogress/nprogress.css'
+  import Progress from "easy-circular-progress";
   export default {
     name:'App',
   }
@@ -157,6 +161,7 @@
   .nav_gallery{
     font-size: 1.2rem;
   }
+
 
 
 </style>

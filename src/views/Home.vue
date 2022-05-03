@@ -123,7 +123,6 @@
             </el-carousel-item>
             <!--        走马灯2 小提琴     -->
             <el-carousel-item>
-
                 <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-2 carousel_father_position" src="" data-image-width="1280" data-image-height="853">
                     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1 ">
                         <h1 style="margin-top: 200px" class="u-text u-text-default u-title u-text-1  carousel_content">Violin</h1>
@@ -161,7 +160,13 @@
     </section>
 
     <!--    第4页 展示结果   -->
-    <section class="u-align-left u-clearfix u-image u-shading u-section-2copy" src="" data-image-width="1280" data-image-height="960" id="page4">
+    <section
+            v-loading="loading"
+            element-loading-text="正在生成中"
+            :element-loading-spinner="svg"
+            element-loading-background="rgba(0, 0, 0, 0.9)"
+            style="width: 100%"
+            class="u-align-left u-clearfix u-image u-shading u-section-2copy" src="" data-image-width="1280" data-image-height="960" id="page4">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-clearfix u-expanded-width u-gutter-50 u-layout-wrap u-layout-wrap-1">
 
@@ -183,6 +188,16 @@
                                     :canv-width="350"
                                     :audio-controls="false"
                             ></av-bars>
+<!--                            <ve-progress-->
+<!--                                    :progress="96"-->
+<!--                                    :color="gradient"-->
+<!--                                    :thickness="10"-->
+<!--                                    animation="bounce 1000"-->
+<!--                                    loading="true"-->
+<!--                            >-->
+<!--                                <span slot="legend-value">/200</span>-->
+<!--                                <p slot="legend-caption">{{percentages}}</p>-->
+<!--                            </ve-progress>-->
                         </div>
 
                         <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
@@ -233,9 +248,24 @@
 </template>
 
 <script>
+    //引入进度条插件 NProgress
+    import NProgress from 'nprogress'
+    import 'nprogress/nprogress.css'
+    // import {VeProgress} from "vue-ellipse-progress";
+
+
+
     const axios = require('axios');
+    NProgress.configure({ easing: 'ease', speed: 100 });
+
+
     export default {
         name: "Home",
+        // components:{
+        //     VeProgress
+        // },
+
+
         data () {
             return {
                 //第一页实现打字机效果
@@ -243,6 +273,7 @@
                 i:0,
                 timer:0,
                 text:"Live music and",
+                percent:'100%',
 
                 //演奏的乐器
                 instrument:'',
@@ -261,7 +292,28 @@
                 },
                 audioResult:{
                     src:require("../../public/audio/RunningWithTheWolves.mp3")
-                }
+                },
+                gradient: {
+                    radial: false,
+                    colors: [
+                        {
+                            color: '#ffd498',
+                            offset: "0",
+                            opacity: '1',
+                        },
+                        {
+                            color: '#ff1e9b',
+                            offset: "100",
+                            opacity: '0.6',
+                        },
+                        {
+                            color: '#961cff',
+                            offset: "100",
+                            opacity: '0.6',
+                        },
+                    ]
+                },
+                loading:false
             }
         },
         mounted() {
@@ -306,10 +358,18 @@
             },
             //吉他
             setPiano(){
+                NProgress.start()
                 this.instrument='piano'
                 this.getCurrentTime();
+                //开始loading
+                this.startLoading();
                 console.log(this.instrument)
+                // 设置进度，0-1
+                NProgress.set(0.4)
+                // 增加一点点
+                NProgress.inc()
                 axios.post('http://localhost:8182/midi/midiSynthesize', {
+
                     instrument:this.instrument,
                     curTime: this.curTime
                 })
@@ -320,11 +380,21 @@
                 .catch(function (error){
                     console.log(error);
                 })
+                //完成
+                NProgress.done()
             },
             //小提琴
             setViolin(){
                 //设置当前乐器为吉他
                 this.instrument='violin'
+                this.getCurrentTime();
+                //开始loading
+                this.startLoading();
+                console.log(this.instrument)
+                // 设置进度，0-1
+                NProgress.set(0.4)
+                // 增加一点点
+                NProgress.inc()
                 //console.log(this.instrument)
                 //发送请求到后端
                 axios.post('http://localhost:8182/midi/midiSynthesize',{instrument:this.instrument}).then((resp)=>{
@@ -334,6 +404,14 @@
             //吉他
             setGuitar(){
                 this.instrument='guitar'
+                this.getCurrentTime();
+                //开始loading
+                this.startLoading();
+                console.log(this.instrument)
+                // 设置进度，0-1
+                NProgress.set(0.4)
+                // 增加一点点
+                NProgress.inc()
                 //console.log(this.instrument)
                 axios.post('http://localhost:8182/midi/midiSynthesize',{instrument:this.instrument}).then((resp)=>{
                     console.log(resp)
@@ -343,6 +421,13 @@
                 //长笛
                 this.instrument='flute'
                 this.getCurrentTime();
+                //开始loading
+                this.startLoading();
+                console.log(this.instrument)
+                // 设置进度，0-1
+                NProgress.set(0.4)
+                // 增加一点点
+                NProgress.inc()
                 console.log(this.instrument)
                 axios.post('http://localhost:8182/midi/midiSynthesize', {
                     instrument:this.instrument,
@@ -367,7 +452,22 @@
             },
             commitTransform(event){
                 console.log(this.instrument)
-            }
+            },
+
+            startLoading() {
+                //开始loading
+                this.loading = true;
+                //设置loading时间 2000ms
+                setTimeout(() => {
+                    this.loading = false;
+                }, 3000);
+            },
+            // openFullScreen2(){
+            //
+            //
+            // }
+
+
         },
 
     }
@@ -942,7 +1042,7 @@
     .carousel_content{    }
 
     .u-section-2copy{
-        background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../public/images/record-player-1851576_1920.jpg");
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../public/images/pioneer-5450710_1920.jpg");
         background-position: 50% 50%;
     }
     .u-section-2copy .u-sheet-1 {
@@ -1061,5 +1161,8 @@
         .u-section-2copy .u-layout-cell-1 {
             min-height: 269px;
         }
+    }
+    #nprogress .bar {
+        background: #F811B2 !important;
     }
 </style>

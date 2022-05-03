@@ -78,14 +78,80 @@
             :audio-src="audio.src"
     ></av-bars>
 
-    <div class="circular-plus">
-        <Progress value="16.88">
-            <!-- <template v-slot:footer>
-              <b>goood</b>
-            </template>-->
-        </Progress>
-    </div>
+<div>
+    <el-progress type="circle"
+                 :percentage="100"
+                 :indeterminate="true"
+                 :duration="5"
+                 status="success">
+        <el-button type="success" :icon="Check" circle />
+    </el-progress>
 
+    <el-progress type="dashboard" :percentage=percentages :indeterminate="true"
+                 :duration="5">
+        <template #default="{ percentage }">
+            <span class="percentage-value">{{ percentages}}%</span>
+            <span class="percentage-label">Progressing</span>
+        </template>
+    </el-progress>
+
+    <el-progress type="circle"
+            :percentage="100"
+            status="warning"
+            :indeterminate="true"
+            :duration="1"
+    />
+</div>
+
+    <ve-progress
+            :data="circles"
+            :progress="progress"
+            :angle="-90"
+            color="blue"
+            :colorFill="colorFillGradient"
+            emptyColor="#8ec5fc"
+            :emptyColorFill="emptyColorFillGradient"
+            :size="300"
+            :thickness="10"
+            emptyThickness="10%"
+            lineMode="in 10"
+            :legend="true"
+            :legendValue="180"
+            :legendFormatter="({currentValue}) => new Intl.NumberFormat('de-DE').format(currentValue)"
+            legendClass="legend-custom-style"
+            dash="60 0.9"
+            animation="reverse 700 400"
+            :noData="false"
+            :loading="false"
+            fontColor="white"
+            :half="false"
+            :gap="10"
+            dot="10 blue"
+            reverse
+            fontSize="5rem">
+
+        <span slot="legend-value">/200</span>
+        <p slot="legend-caption">GOOD JOB</p>
+
+    </ve-progress>
+
+    <ve-progress
+            :progress="96"
+            :color="gradient"
+            :thickness="10"
+            animation="bounce 1000"
+            loading="true"
+    >
+        <span slot="legend-value">/200</span>
+        <p slot="legend-caption">{{percentages}}</p>
+    </ve-progress>
+
+
+    <el-carousel :interval="4000" type="card" height="200px">
+        <el-carousel-item v-for="item in 6" :key="item">
+            <h3 class="medium">{{ item }}</h3>
+        </el-carousel-item>
+    </el-carousel>
 
 
 
@@ -93,7 +159,16 @@
 </template>
 
 <script>
-    import Progress from "easy-circular-progress";
+    import NProgress from 'nprogress'
+    import 'nprogress/nprogress.css'
+    import {VeProgress} from "vue-ellipse-progress";
+
+
+    NProgress.start()// 开始
+    NProgress.set(0.4) // 设置进度，0-1
+    NProgress.inc() // 增加一点点
+    NProgress.done() // 完成
+
     function realFormatSecond(second) {
         var secondType = typeof second
 
@@ -110,11 +185,39 @@
             return '0:00:00'
         }
     }
+    for (var i=0;i<100;i++){
+
+    }
 
     export default {
         name: "Card",
+        components:{
+            VeProgress
+        },
+
+
+
         data() {
             return {
+
+                gradient: {
+                    radial: false,
+                    colors: [
+                        {
+                            color: '#6546f7',
+                            offset: "0",
+                            opacity: '1',
+                        },
+                        {
+                            color: 'lime',
+                            offset: "100",
+                            opacity: '0.6',
+                        },
+                    ]
+                },
+
+                percentages :i,
+
                 audio: {
                     // 该字段是音频是否处于播放状态的属性
                     playing: false,
@@ -125,6 +228,9 @@
                     src: require("../../public/audio/RunningWithTheWolves.mp3")
                 }
             }
+
+
+
         },
         methods: {
             // 控制音频的播放与暂停
@@ -746,5 +852,38 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .percentage-value {
+        display: block;
+        margin-top: 10px;
+        font-size: 28px;
+    }
+    .percentage-label {
+        display: block;
+        margin-top: 10px;
+        font-size: 12px;
+    }
+    .demo-progress .el-progress--line {
+        margin-bottom: 15px;
+        width: 350px;
+    }
+    .demo-progress .el-progress--circle {
+        margin-right: 15px;
+    }
+
+    .el-carousel__item h3 {
+        color: #475669;
+        font-size: 14px;
+        opacity: 0.75;
+        line-height: 100px;
+        margin: 0;
+    }
+
+    .el-carousel__item:nth-child(2n) {
+        background-color: #99a9bf;
+    }
+
+    .el-carousel__item:nth-child(2n+1) {
+        background-color: #d3dce6;
     }
 </style>
