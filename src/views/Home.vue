@@ -32,6 +32,7 @@
         <meta property="og:type" content="website">
     </head>
     <body class="u-body u-xl-mode">
+    <Header></Header>
 
     <section class="u-clearfix u-image u-section-1" id="sec-7eb1">
         <div class="u-clearfix u-sheet u-sheet-1">
@@ -251,6 +252,7 @@
     //引入进度条插件 NProgress
     import NProgress from 'nprogress'
     import 'nprogress/nprogress.css'
+    import Header from "../components/Header";
     // import {VeProgress} from "vue-ellipse-progress";
 
 
@@ -261,6 +263,7 @@
 
     export default {
         name: "Home",
+        components: {Header},
         // components:{
         //     VeProgress
         // },

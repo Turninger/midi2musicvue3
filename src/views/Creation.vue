@@ -9,8 +9,6 @@
         <title>Art</title>
         <link rel="stylesheet" href="nicepage.css" media="screen">
         <link rel="stylesheet" href="Art.css" media="screen">
-        <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
-        <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
         <meta name="generator" content="Nicepage 4.10.5, nicepage.com">
         <link id="u-theme-google-font" rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
@@ -18,18 +16,19 @@
               href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
 
 
-<!--        <script type="application/ld+json">{-->
-<!--            "@context": "http://schema.org",-->
-<!--            "@type": "Organization",-->
-<!--            "name": "",-->
-<!--            "url": "/"-->
-<!--        }</script>-->
+        <!--        <script type="application/ld+json">{-->
+        <!--            "@context": "http://schema.org",-->
+        <!--            "@type": "Organization",-->
+        <!--            "name": "",-->
+        <!--            "url": "/"-->
+        <!--        }</script>-->
         <meta name="theme-color" content="#ff7070">
         <meta property="og:title" content="Art">
         <meta property="og:type" content="website">
         <link rel="canonical" href="/">
     </head>
     <body class="u-body u-xl-mode">
+    <Header></Header>
     <section class="u-clearfix u-image u-section-1" id="sec-1994">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-align-right u-container-style u-group u-group-1">
@@ -52,24 +51,30 @@
     <section class="u-align-center u-clearfix u-image u-shading u-section-2" src="" data-image-width="150"
              data-image-height="112" id="sec-8f61">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-text u-text-default u-title u-text-1">在线生成</h1>
+            <h1 class="u-text u-text-default u-title u-text-1">
+                <vuetyped :strings="['在线生成']" :loop="true" :smart-backspace="true">
+                    <div class="typing" />
+                </vuetyped>
+                </h1>
             <p class="u-large-text u-text u-text-default u-text-variant u-text-2">上传MIDI文件，生成属于你的音乐！</p>
             <!--            <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">上传.midi</a>-->
             <el-upload
                     class="upload-demo"
-                    action="https://jsonplaceholder.typicode.com/posts/"
+                    action="http://localhost:8182/file/upload"
+                    accept=".mid"
                     :on-preview="handlePreview"
                     :on-remove="handleRemove"
                     :before-remove="beforeRemove"
-                    multiple
-                    :limit="3"
+                    multiple="false"
+                    :limit="1"
                     :on-exceed="handleExceed"
-                    :file-list="fileList">
+            >
                 <!--                <a size="small" type="primary" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1">点击上传</a>-->
                 <a
                         class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                         data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                        data-animation-direction="">上传.midi</a>
+                        data-animation-direction=""
+                >上传.midi</a>
 
                 <!--                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>-->
             </el-upload>
@@ -134,9 +139,9 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> Cello</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择大提琴来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -148,9 +153,9 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> DoubleBass</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择低音提琴来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -162,9 +167,9 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> Flute</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择长笛来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -177,9 +182,9 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Oboe</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择双簧管来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -191,9 +196,9 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Clarinet</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择单簧管来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -205,9 +210,9 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Saxophone</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择萨克斯来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -219,9 +224,9 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Bassoon</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择巴松管来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -233,9 +238,9 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Trumpet</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择小号来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -248,9 +253,9 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Trombone</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择长号来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
 
@@ -276,9 +281,9 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Tuba</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">选择大号来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -286,13 +291,13 @@
             <el-carousel-item>
                 <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-13" src=""
                      data-image-width="1280" data-image-height="853">
-                    <div >
+                    <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> guitar</h1>
                         <p class="u-large-text u-text u-text-variant u-text-2"> 选择吉他来演奏你的音乐！</p>
                         <a
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">Read More</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -305,19 +310,27 @@
         <!--        </div>-->
     </section>
 
-<!--    第4页 设置音调和演奏速度-->
+    <!--    第4页 设置音调和演奏速度-->
     <section class="u-align-left u-clearfix u-image u-shading u-section-4" src="" data-image-width="1280"
              data-image-height="853" id="sec-00b7">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
                 <div class="u-layout">
                     <div class="u-layout-row">
+                        <el-form :model="musicArgs">
                         <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                             <div class="u-container-layout u-container-layout-1">
-                                <select
+                                <select v-model:musicArgs.pitchOffset
                                         class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                                         data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                        data-animation-direction="">Read More</select>
+                                        data-animation-direction="">
+                                    <option>-1.0</option>
+                                    <option>-0.5</option>
+                                    <option>0</option>
+                                    <option>0.5</option>
+                                    <option>1.0</option>
+
+                                </select>
                                 <p class="u-large-text u-text u-text-variant u-text-1">调整MIDI演奏的音调（&gt;0 ：升调, &lt;0
                                     ：降调）</p>
                                 <h1 class="u-text u-text-default u-title u-text-2">演奏音调</h1>
@@ -327,19 +340,35 @@
                             <div class="u-container-layout u-container-layout-2">
                                 <h1 class="u-text u-text-default u-title u-text-3">演奏速度</h1>
                                 <p class="u-large-text u-text u-text-variant u-text-4">调整 MIDI 的演奏速度（=1：原始速度，&gt;1：更快，&lt;1：更慢）</p>
-                                <a href="#"
+                                <select v-model:musicArgs.speedRate
                                    class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-2"
                                    data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                   data-animation-direction="">Read More</a>
+                                        data-animation-direction="">
+                                    <option>0.2</option>
+                                    <option>0.4</option>
+                                    <option>0.6</option>
+                                    <option>0.8</option>
+                                    <option>1.0</option>
+                                    <option>1.2</option>
+                                    <option>1.4</option>
+                                    <option>1.6</option>
+                                    <option>1.8</option>
+                                </select>
+
+                                <a @click="genMusic"
+                                   class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-2"
+                                   data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                   data-animation-direction="">开始生成</a>
                             </div>
                         </div>
+                        </el-form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<!--    第5页 在线预览或下载文件-->
+    <!--    第5页 在线预览或下载文件-->
     <section class="u-align-left u-clearfix u-image u-shading u-section-5" id="sec-e4f3" data-image-width="150"
              data-image-height="100">
         <div class="u-clearfix u-sheet u-sheet-1">
@@ -370,7 +399,7 @@
         </div>
     </section>
 
-<!--    第6页 表达控制表格-->
+    <!--    第6页 表达控制表格-->
     <section class="u-align-center u-clearfix u-image u-shading u-section-6" src="" data-image-width="1280"
              data-image-height="853" id="sec-8121">
         <div class="u-clearfix u-sheet u-sheet-1">
@@ -426,7 +455,8 @@
                                             label="操作"
                                             width="100">
                                         <template slot-scope="scope">
-                                            <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+                                            <el-button @click="handleClick(scope.row)" type="text" size="small">查看
+                                            </el-button>
                                             <el-button type="text" size="small">编辑</el-button>
                                         </template>
                                     </el-table-column>
@@ -438,7 +468,7 @@
             </div>
         </div>
     </section>
-<!--    第7页 在线预览或下载-->
+    <!--    第7页 在线预览或下载-->
     <section class="u-align-left u-clearfix u-image u-shading u-section-7" id="carousel_e038" data-image-width="1280"
              data-image-height="853" data-animation-name="" data-animation-duration="0" data-animation-delay="0"
              data-animation-direction="">
@@ -487,10 +517,22 @@
 </template>
 
 <script>
+    import NProgress from 'nprogress'
+    import 'nprogress/nprogress.css'
+    import Header from "../components/Header";
+
+    const axios = require('axios');
     export default {
         name: "Creation",
+        components: {Header},
         data() {
             return {
+                //音乐演奏参数
+                musicArgs:{
+                    instrument:'',
+                    pitchOff:'',
+                    speedRate:'',
+                },
                 tableData: [{
                     date: '2016-05-02',
                     name: '王小虎',
@@ -521,7 +563,7 @@
                     zip: 200333
                 }],
 
-                instrument:'',
+                instrument: '',
                 fileList: [{
                     name: 'food.jpeg',
                     url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
@@ -536,71 +578,78 @@
             //选择乐器
             //小提琴
             setViolin() {
-                this.instrument='violin'
-                //console.log(this.instrument)
-                axios.post('http://localhost:8182/midi/midiCreation',{instrument:this.instrument}).then((resp)=>{
-                    console.log(resp)
-                })
+                this.musicArgs.instrument = 'violin'
+                // //console.log(this.instrument)
+                // axios.post('http://localhost:8182/midi/midiCreation', {instrument: this.instrument}).then((resp) => {
+                //     console.log(resp)
+                // })
             },
             // 中提琴
-            setViola(){
-                this.instrument='viola'
+            setViola() {
+                this.musicArgs.instrument = 'viola'
                 //console.log(this.instrument)
             },
             // 大提琴
-            setCello(){
-                this.instrument='cello'
+            setCello() {
+                this.musicArgs.instrument = 'cello'
                 //console.log(this.instrument)
             },
             // 低音提琴
-            setDoubleBass(){
-                this.instrument='double bass'
+            setDoubleBass() {
+                this.musicArgs.instrument = 'double bass'
                 //console.log(this.instrument)
             },
             // 长笛
-            setFlute(){
-                this.instrument='flute'
+            setFlute() {
+                this.musicArgs.instrument = 'flute'
                 //console.log(this.instrument)
             },
             //
-            setOboe(){
-                this.instrument='oboe'
+            setOboe() {
+                this.musicArgs.instrument = 'oboe'
                 //console.log(this.instrument)
             },
             //
-            setClarinet(){
-                this.instrument='clarinet'
+            setClarinet() {
+                this.musicArgs.instrument = 'clarinet'
                 //console.log(this.instrument)
             },
             //
-            setSaxphone(){
-                this.instrument='saxphone'
+            setSaxphone() {
+                this.musicArgs.instrument = 'saxphone'
                 //console.log(this.instrument)
             },
             //
-            setBassoon(){
-                this.instrument='bassoon'
+            setBassoon() {
+                this.musicArgs.instrument = 'bassoon'
                 //console.log(this.instrument)
             },
             //
-            setTrumpet(){
-                this.instrument='trumpet'
+            setTrumpet() {
+                this.musicArgs.instrument = 'trumpet'
                 //console.log(this.instrument)
             },
             //
-            setTrombone(){
-                this.instrument='trombone'
+            setTrombone() {
+                this.musicArgs.instrument = 'trombone'
                 //console.log(this.instrument)
             },
             //
-            setTuba(){
-                this.instrument='tuba'
+            setTuba() {
+                this.musicArgs.instrument = 'tuba'
                 //console.log(this.instrument)
             },
             //
             setGuitar() {
-                this.instrument='guitar'
+                this.musicArgs.instrument = 'guitar'
                 //console.log(this.instrument)
+            },
+
+            genMusic(){
+                console.log(this.musicArgs)
+                // request.post("http://localhost:8182/creation/genMusic",this.musicArgs).then((resp)=>{
+                //     console.log(resp)
+                // })
             },
 
 
@@ -608,6 +657,7 @@
                 console.log(file, fileList);
             },
             handlePreview(file) {
+                window.open(file.response.url)
                 console.log(file);
             },
             handleExceed(files, fileList) {
