@@ -1,7 +1,6 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import axios from "axios";
@@ -11,16 +10,19 @@ import Progress from "easy-circular-progress";
 import Nprogress from "nprogress"
 import 'nprogress/nprogress.css'
 import veProgress from "vue-ellipse-progress";
+import request from "@/utils/request";
 
 
-createApp(App)
-    .use(store)
-    .use(router)
-    .use(ElementPlus)
-    // .use(axios)
-    .use(AudioVisual)
-    .use(vuetyped)
-    // .use(Progress)
-    .use(Nprogress)
-    // .use(veProgress)
-    .mount('#app')
+const app = createApp(App);
+app.use(router)
+app.use(ElementPlus)
+// app.use(axios)
+app.use(AudioVisual)
+app.use(vuetyped)
+// .use(Progress)
+app.use(Nprogress)
+// .use(veProgress)
+// app.config.globalProperties.request=request
+app.config.globalProperties.request=request
+app.mount('#app')
+

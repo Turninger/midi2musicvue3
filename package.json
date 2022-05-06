@@ -12,6 +12,7 @@
     "easy-circular-progress": "^1.0.4",
     "element-plus": "^2.1.10",
     "nprogress": "^0.2.0",
+    "store": "^2.0.12",
     "vue": "^3.2.13",
     "vue-audio-visual": "^2.4.1",
     "vue-ellipse-progress": "^2.1.1",

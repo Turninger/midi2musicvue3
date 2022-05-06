@@ -27,84 +27,94 @@
         <meta property="og:type" content="website">
     </head>
     <body class="u-body u-xl-mode">
-    <!--    <header class="u-clearfix u-grey-80 u-header u-sticky u-sticky-d476" id="sec-e950" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-sheet-1">-->
-    <!--        <a href="https://nicepage.com/website-design" class="u-image u-logo u-image-1" data-image-width="1280" data-image-height="786">-->
-    <!--            <img src="images/gc5af6611333c6aa0517181df2b5535dc11f60978bcfea83c47f673fb920ce25c7ffdc27b7a1a6b1b7bb9759e4bd4279295c2c99d063c1e60b14ba01babe3e8c6_1280.png" class="u-logo-image u-logo-image-1">-->
-    <!--        </a>-->
-    <!--        <a href="#" class="u-image u-logo u-image-2">-->
-    <!--            <img src="images/default-logo-2.png" class="u-logo-image u-logo-image-2">-->
-    <!--        </a>-->
-    <!--        <nav class="u-align-left u-menu u-menu-dropdown u-nav-spacing-25 u-offcanvas u-menu-1">-->
-    <!--            <div class="menu-collapse" style="letter-spacing: 1px; text-transform: uppercase; font-size: 0.875rem;">-->
-    <!--                <a class="u-active-palette-1-base u-button-style u-custom-active-color u-custom-hover-color u-hover-palette-1-base u-nav-link" href="#" style="padding: 4px 0px; font-size: calc(1em + 8px);">-->
-    <!--                    <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302" style="undefined"><use xlink:href="#svg-7b92"></use></svg>-->
-    <!--                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svg-7b92" x="0px" y="0px" viewBox="0 0 302 302" style="enable-background:new 0 0 302 302;" xml:space="preserve" class="u-svg-content"><g><rect y="36" width="302" height="30"></rect><rect y="236" width="302" height="30"></rect><rect y="136" width="302" height="30"></rect>-->
-    <!--</g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>-->
-    <!--                </a>-->
-    <!--            </div>-->
-    <!--            <div class="u-custom-menu u-nav-container">-->
-    <!--                <ul class="u-nav u-spacing-36 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Art.html" style="padding: 8px 0px;">艺术创想</a>-->
-    <!--                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="ExploreGallery.html" style="padding: 8px 0px;">探索曲库</a>-->
-    <!--                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html" style="padding: 8px 0px;">主页</a>-->
-    <!--                </li></ul>-->
-    <!--            </div>-->
-    <!--            <div class="u-custom-menu u-nav-container-collapse">-->
-    <!--                <div class="u-align-center u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">-->
-    <!--                    <div class="u-inner-container-layout u-sidenav-overflow">-->
-    <!--                        <div class="u-menu-close"></div>-->
-    <!--                        <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Art.html">艺术创想</a>-->
-    <!--                        </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="ExploreGallery.html">探索曲库</a>-->
-    <!--                        </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">主页</a>-->
-    <!--                        </li></ul>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>-->
-    <!--            </div>-->
-    <!--        </nav>-->
-    <!--        <span class="u-icon u-text-white u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 56.966 56.966" style=""><use xlink:href="#svg-36b5"></use></svg><svg class="u-svg-content" viewBox="0 0 56.966 56.966" x="0px" y="0px" id="svg-36b5" style="enable-background:new 0 0 56.966 56.966;"><path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23-->
-    <!--	s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92-->
-    <!--	c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17-->
-    <!--	s-17-7.626-17-17S14.61,6,23.984,6z"></path></svg></span>-->
-    <!--        <p class="u-text u-text-default u-text-1">登录</p>-->
-    <!--    </div></header>-->
+
     <section class="u-clearfix u-image u-section-1" id="sec-4a3b" data-image-width="1280" data-image-height="853">
         <div class="u-align-left u-clearfix u-sheet u-sheet-1">
             <div class="u-container-style u-group u-radius-30 u-shape-round u-white u-group-1">
-<!--                <div class="u-container-layout u-container-layout-1" id="login">-->
-<!--                    <a href="https://nicepage.com/wordpress-themes" class="u-active-none u-border-2 u-border-palette-1-base u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-top-left-radius-0 u-top-right-radius-0 u-btn-1">忘记密码？</a>-->
-<!--                    <a href="https://nicepage.com/wordpress-themes" class="u-active-none u-border-2 u-border-palette-1-base u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-top-left-radius-0 u-top-right-radius-0 u-btn-2">没有账户？立即创建！</a>-->
-<!--                </div>-->
+
             </div>
             <div class="u-form u-login-control u-form-1">
                 <!--                拦截刷新，构造登录方法-->
-                <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
-                    <div class="u-form-group u-form-name">
-                        <label for="username-a30d" class="u-label">输入用户名 *</label>
-                        <input v-model="users.username" type="text" placeholder="用户名" id="username-a30d" name="username" class="u-border-grey-30 u-input u-input-rectangle u-input-1" required="">
-                    </div>
-<!--                    登录密码-->
-                    <div class="u-form-group u-form-password">
-                        <label for="password-a30d" class="u-label">输入密码 *</label>
-                        <input v-model="users.password" type="password" placeholder="登录密码" id="password-a30d" name="password" class="u-border-grey-30 u-input u-input-rectangle u-input-2" required="">
-                    </div>
-                    <div class="u-form-group u-form-password">
-<!--                        确认密码-->
-                        <label for="password-a30d" class="u-label">确认密码 *</label>
-                        <input  type="password" placeholder="确认密码"  name="password" class="u-border-grey-30 u-input u-input-rectangle u-input-2" required="">
-                    </div>
-<!--                    <div class="u-form-checkbox u-form-group">-->
-<!--                        <input type="checkbox" id="checkbox-a30d" name="remember" value="On">-->
-<!--                        <label for="checkbox-a30d" class="u-label">Remember me</label>-->
+<!--                <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">-->
+<!--                    <div class="u-form-group u-form-name">-->
+<!--                        <label for="username-a30d" class="u-label">输入用户名 *</label>-->
+<!--                        <input v-model="users.username" type="text" placeholder="用户名" id="username-a30d" name="username" class="u-border-grey-30 u-input u-input-rectangle u-input-1" required="">-->
 <!--                    </div>-->
+<!--&lt;!&ndash;                    登录密码&ndash;&gt;-->
+<!--                    <div class="u-form-group u-form-password">-->
+<!--                        <label for="password-a30d" class="u-label">输入密码 *</label>-->
+<!--                        <input v-model="users.password" type="password" placeholder="登录密码" id="password-a30d" name="password" class="u-border-grey-30 u-input u-input-rectangle u-input-2" required="">-->
+<!--                    </div>-->
+<!--                    <div class="u-form-group u-form-password">-->
+<!--&lt;!&ndash;                        确认密码&ndash;&gt;-->
+<!--                        <label for="password-a30d" class="u-label">确认密码 *</label>-->
+<!--                        <input  type="password" placeholder="确认密码"  name="password" class="u-border-grey-30 u-input u-input-rectangle u-input-2" required="">-->
+<!--                    </div>-->
+<!--&lt;!&ndash;                    <div class="u-form-checkbox u-form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="checkbox" id="checkbox-a30d" name="remember" value="On">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <label for="checkbox-a30d" class="u-label">Remember me</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                    <div class="u-align-left u-form-group u-form-submit">-->
+<!--                        <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-hover-grey-10 u-btn-3" @click.prevent="register">注册</a>-->
+<!--                        <input type="submit" value="submit" class="u-form-control-hidden">-->
+<!--                    </div>-->
+<!--                    <input type="hidden" value="" name="recaptchaResponse">-->
+<!--                    <input type="hidden" id="siteId" name="siteId" value="1746307">-->
+<!--                    <input type="hidden" id="pageId" name="pageId" value="1750248">-->
+<!--                </form>-->
+
+                <el-form :model="users" :rules="rules" ref="userForm"
+                         class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form"
+                         source="custom" name="form" style="padding: 10px;">
+                    <div class="u-form-group u-form-name">
+                        <el-form-item size="large" label="Username" prop="username" for="username-a30d" class="u-label">
+                            <el-input v-model="users.username" type="text" placeholder="用户名"
+                                      id="username-a30d"
+                                      name="username"
+                                      required="">
+                            </el-input>
+                        </el-form-item>
+
+                    </div>
+                    <br>
+                    <div class="u-form-group u-form-password">
+                        <el-form-item size="large" label="Password" prop="password" for="password-a30d" class="u-label">
+                            <el-input v-model="users.password" type="password" placeholder="登录密码" id="password-a30d"
+                                      name="password"
+                                      required="">
+                            </el-input>
+                        </el-form-item>
+
+                    </div>
+
+                    <div class="u-form-group u-form-password">
+                        <el-form-item size="large" label="Password" prop="concernPassword" for="password-a30d" class="u-label">
+                            <el-input v-model="users.concernPassword" type="password" placeholder="确认密码"
+                                      name="password"
+                                      required="">
+                            </el-input>
+                        </el-form-item>
+
+                    </div>
+                    <div class="u-form-checkbox u-form-group">
+                        <input type="checkbox" id="checkbox-a30d" name="remember" value="On">
+                        <label for="checkbox-a30d" class="u-label">Remember me</label>
+                    </div>
                     <div class="u-align-left u-form-group u-form-submit">
-                        <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-hover-grey-10 u-btn-3" @click.prevent="register">注册</a>
+                        <a @click.prevent="register('ruleForm')" href="#"
+                           class="u-border-none u-btn u-btn-submit u-button-style u-hover-grey-10 u-btn-3">注册</a>
                         <input type="submit" value="submit" class="u-form-control-hidden">
                     </div>
                     <input type="hidden" value="" name="recaptchaResponse">
                     <input type="hidden" id="siteId" name="siteId" value="1746307">
                     <input type="hidden" id="pageId" name="pageId" value="1750248">
-                </form>
+                </el-form>
+                <div class="u-container-layout u-container-layout-1" id="login">
+                    <!--                    <a href="https://nicepage.com/wordpress-themes" class="u-active-none u-border-2 u-border-palette-1-base u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-top-left-radius-0 u-top-right-radius-0 u-btn-1">忘记密码？</a>-->
+                    <a href="/login" class="u-active-none u-border-2 u-border-palette-1-base u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-top-left-radius-0 u-top-right-radius-0 u-btn-2">已有账户，点此登录</a>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -152,6 +162,8 @@
 </template>
 
 <script>
+    import request from "../utils/request";
+
     const axios = require('axios');
     export default {
 
@@ -159,28 +171,48 @@
         data(){
 
             return{
-                users:{
-                    username:'',
-                    password:'',
-                    //concernPassword:'',
+                users: { },
+                // loginForm: {
+                //     username: '',
+                //     password: '',
+                // },
+                rules: {
+                    username: [
+                        {required: true, message: '请输入用户名', trigger: 'blur'}
+                    ],
+                    password: [
+                        {required: true, message: '请输入密码', trigger: 'blur'}
+                    ],
+                    concernPassword: [
+                        {required: true, message: '请确认密码', trigger: 'blur'}
+                    ]
 
-                },
-                username:'',
-                password:'',
-                concernPassword:''
+                }
             }
         },
         methods:{
-            register(){
-                axios.post('http://localhost:8182/user/register',this.users).then((resp)=>{
-                    console.log(resp.status)
-                    if (resp.status===200){
-                        alert("注册成功！")
+
+            register() {
+                this.$refs['userForm'].validate((valid) => {
+                    if (valid) {
+                        if (this.users.password !== this.users.concernPassword) {
+                            this.$message.error("两次输入的密码不一致")
+                            return false
+                        }
+                        request.post('http://localhost:8182/user/register', this.users).then((resp) => {
+                            if (resp.code === "200") {
+                                // localStorage.setItem("user", JSON.stringify(resp.data))  // 存储用户信息到浏览器
+                                // localStorage.setItem("menus", JSON.stringify(resp.data.menus))  // 存储用户信息到浏览器
+                                this.$message.success("注册成功")
+                                this.$router.push("/")
+                            } else {
+                                this.$message.error(resp.msg)
+                            }
+                            console.log(resp)
+                        });
                     }
-                    //this.users=resp.data
-                })
-                console.log(this.username+this.password)
-            }
+                });
+            },
 
         }
 
