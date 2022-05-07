@@ -53,30 +53,33 @@
         <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-text u-text-default u-title u-text-1">
                 <vuetyped :strings="['在线生成']" :loop="true" :smart-backspace="true">
-                    <div class="typing" />
+                    <div class="typing"/>
                 </vuetyped>
-                </h1>
-            <p class="u-large-text u-text u-text-default u-text-variant u-text-2">上传MIDI文件，生成属于你的音乐！</p>
+            </h1>
+            <p class="u-large-text u-text u-text-default u-text-variant u-text-2">
+                <vuetyped :strings="['上传MIDI文件，生成属于你的音乐！']" :loop="true" :smart-backspace="true">
+                    <div class="typing"/>
+                </vuetyped>
+            </p>
             <!--            <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">上传.midi</a>-->
             <el-upload
                     class="upload-demo"
                     action="http://localhost:8182/file/upload"
                     accept=".mid"
-                    :on-preview="handlePreview"
+                    :on-preview="(response,file)=>handlePreview(item,response, file)"
                     :on-remove="handleRemove"
+                    :on-success="(response,file)=>handleSuccess(item,response, file)"
                     :before-remove="beforeRemove"
                     multiple="false"
                     :limit="1"
                     :on-exceed="handleExceed"
+                    auto-upload="true"
             >
-                <!--                <a size="small" type="primary" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1">点击上传</a>-->
-                <a
-                        class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                        data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                        data-animation-direction=""
+                <a class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                   data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                   data-animation-direction=""
                 >上传.midi</a>
 
-                <!--                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>-->
             </el-upload>
 
         </div>
@@ -85,21 +88,6 @@
     <!-- 第3页   乐器选择 走马灯  -->
     <section class="u-carousel u-slide u-block-e239-1" id="carousel_759a" data-interval="5000" data-u-ride="carousel"
              style="background-color: #1a1a1a">
-        <!--        <ol class="u-absolute-hcenter u-carousel-indicators u-block-e239-2">-->
-        <!--            <li data-u-target="#carousel_759a" class="u-active u-grey-30" data-u-slide-to="0"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="1"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="2"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="3"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="4"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="5"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="6"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="7"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="8"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="9"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="10"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="11"></li>-->
-        <!--            <li data-u-target="#carousel_759a" class="u-grey-30" data-u-slide-to="12"></li>-->
-        <!--        </ol>-->
 
         <el-carousel type="card" class="u-carousel u-slide u-block-e239-1" :interval="4000" height="600px">
             <!--                1.小提琴-->
@@ -109,10 +97,11 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Violin</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">选择小提琴来演奏你的音乐！</p>
-                        <a href="#"
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                        <a
+                                @click="setViolin"
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -123,10 +112,11 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> Viola</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择中提琴来演奏你的音乐！</p>
-                        <a href="#"
-                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                           data-animation-direction="">Read More</a>
+                        <a
+                                @click="setViola"
+                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -138,10 +128,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> Cello</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择大提琴来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setCello"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -152,10 +142,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> DoubleBass</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择低音提琴来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setDoubleBass"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -166,10 +156,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> Flute</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择长笛来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setFlute"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -181,10 +171,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Oboe</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择双簧管来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setOboe"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -195,10 +185,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Clarinet</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择单簧管来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setClarinet"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -209,10 +199,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Saxophone</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择萨克斯来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setSaxphone"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -223,10 +213,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Bassoon</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择巴松管来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setBassoon"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -237,10 +227,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Trumpet</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择小号来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setTrumpet"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -252,10 +242,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Trombone</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择长号来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setTrombone"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
 
@@ -265,7 +255,7 @@
                 <!--                           <h1 class="u-text u-text-default u-title u-text-1">Trombone</h1>-->
                 <!--                           <p class="u-large-text u-text u-text-default u-text-variant u-text-2">Sample text. Lorem ipsum dolor-->
                 <!--                               sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>-->
-                <!--                           <a href="#"-->
+                <!--                           <a -->
                 <!--                              class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"-->
                 <!--                              data-animation-name="" data-animation-duration="0" data-animation-delay="0"-->
                 <!--                              data-animation-direction="">Read More</a>-->
@@ -280,10 +270,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Tuba</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">选择大号来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setTuba"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -294,10 +284,10 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> guitar</h1>
                         <p class="u-large-text u-text u-text-variant u-text-2"> 选择吉他来演奏你的音乐！</p>
-                        <a
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">Read More</a>
+                        <a @click="setGuitar"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -317,50 +307,50 @@
             <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
                 <div class="u-layout">
                     <div class="u-layout-row">
-                        <el-form :model="musicArgs">
-                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                            <div class="u-container-layout u-container-layout-1">
-                                <select v-model:musicArgs.pitchOffset
-                                        class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                        data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                        data-animation-direction="">
-                                    <option>-1.0</option>
-                                    <option>-0.5</option>
-                                    <option>0</option>
-                                    <option>0.5</option>
-                                    <option>1.0</option>
+                        <el-form :model="musicArgs" ref="musicArgs">
+                            <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                                <div class="u-container-layout u-container-layout-1">
+                                    <select v-model="musicArgs.pitchOff" size="large" placeholder="请选择演奏音调"
+                                               class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                               data-animation-name="" data-animation-duration="0"
+                                               data-animation-delay="0"
+                                               data-animation-direction="">
 
-                                </select>
-                                <p class="u-large-text u-text u-text-variant u-text-1">调整MIDI演奏的音调（&gt;0 ：升调, &lt;0
-                                    ：降调）</p>
-                                <h1 class="u-text u-text-default u-title u-text-2">演奏音调</h1>
+                                        <option>-1.0</option>
+                                        <option>-0.5</option>
+                                        <option>0</option>
+                                        <option>0.5</option>
+                                        <option>1.0</option>
+                                    </select>
+                                    <p class="u-large-text u-text u-text-variant u-text-1">调整MIDI演奏的音调（&gt;0 ：升调, &lt;0
+                                        ：降调）</p>
+                                    <h1 class="u-text u-text-default u-title u-text-2">演奏音调</h1>
+                                </div>
                             </div>
-                        </div>
-                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-                            <div class="u-container-layout u-container-layout-2">
-                                <h1 class="u-text u-text-default u-title u-text-3">演奏速度</h1>
-                                <p class="u-large-text u-text u-text-variant u-text-4">调整 MIDI 的演奏速度（=1：原始速度，&gt;1：更快，&lt;1：更慢）</p>
-                                <select v-model:musicArgs.speedRate
-                                   class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-2"
-                                   data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                        data-animation-direction="">
-                                    <option>0.2</option>
-                                    <option>0.4</option>
-                                    <option>0.6</option>
-                                    <option>0.8</option>
-                                    <option>1.0</option>
-                                    <option>1.2</option>
-                                    <option>1.4</option>
-                                    <option>1.6</option>
-                                    <option>1.8</option>
-                                </select>
+                            <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                                <div class="u-container-layout u-container-layout-2">
+                                    <h1 class="u-text u-text-default u-title u-text-3">演奏速度</h1>
+                                    <p class="u-large-text u-text u-text-variant u-text-4">调整 MIDI 的演奏速度（=1：原始速度，&gt;1：更快，&lt;1：更慢）</p>
+                                    <select v-model="musicArgs.speedRate" size="large" placeholder="请选择演奏速度"
+                                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-2"
+                                            data-animation-name="" data-animation-duration="0" data-animation-delay="0">
+                                        <option>0.2</option>
+                                        <option>0.4</option>
+                                        <option>0.6</option>
+                                        <option>0.8</option>
+                                        <option>1.0</option>
+                                        <option>1.2</option>
+                                        <option>1.4</option>
+                                        <option>1.6</option>
+                                        <option>1.8</option>
+                                    </select>
 
-                                <a @click="genMusic"
-                                   class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-2"
-                                   data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                   data-animation-direction="">开始生成</a>
+                                    <a @click="genMusic" href="#sec-e4f3"
+                                       class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-2"
+                                       data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                       data-animation-direction="">开始生成</a>
+                                </div>
                             </div>
-                        </div>
                         </el-form>
                     </div>
                 </div>
@@ -528,10 +518,15 @@
         data() {
             return {
                 //音乐演奏参数
-                musicArgs:{
-                    instrument:'',
-                    pitchOff:'',
-                    speedRate:'',
+                musicArgs: {
+                    //上传文件的路径
+                    fileUrl: '',
+                    //演奏乐器
+                    instrument: '',
+                    //半音音调
+                    pitchOff: '',
+                    //演奏速度
+                    speedRate: '',
                 },
                 tableData: [{
                     date: '2016-05-02',
@@ -645,23 +640,39 @@
                 //console.log(this.instrument)
             },
 
-            genMusic(){
+            genMusic() {
+                //判断音乐生成参数是否含有空值
+                if (this.musicArgs.fileUrl===null){
+                    this.$message.error("请先上传文件")
+                }
+                if (this.musicArgs.instrument===null){
+                    this.$message.error("请先选择演奏乐器")
+                }
+                if (this.musicArgs.pitchOff===null||this.musicArgs.speedRate===null){
+                    this.$message.error("请选择生成参数")
+                }
                 console.log(this.musicArgs)
-                // request.post("http://localhost:8182/creation/genMusic",this.musicArgs).then((resp)=>{
-                //     console.log(resp)
-                // })
+                request.post("http://localhost:8182/creation/genMusic",this.musicArgs).then((resp)=>{
+                    console.log(resp)
+                })
             },
+            //文件上传成功的回调函数
+            handleSuccess(item, response, file) {
+                //console.log(response)
+                //后端回调文件保存url
+                //例如：http://localhost:8182/file/7de8de5bd7154fa9aa358322ef57f15c.mid
+                this.musicArgs.fileUrl = response;
+            },
+            //文件删除事件处理
+            handleRemove(file) {
 
-
-            handleRemove(file, fileList) {
-                console.log(file, fileList);
             },
-            handlePreview(file) {
-                window.open(file.response.url)
-                console.log(file);
+            //文件预览事件处理
+            handlePreview(item, response, file) {
             },
+            //文件数量超出限制
             handleExceed(files, fileList) {
-                this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+                this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
             },
             beforeRemove(file, fileList) {
                 return this.$confirm(`确定移除 ${file.name}？`);
