@@ -146,14 +146,10 @@
         <p slot="legend-caption">{{percentages}}</p>
     </ve-progress>
 
-
-    <el-carousel :interval="4000" type="card" height="200px">
-        <el-carousel-item v-for="item in 6" :key="item">
-            <h3 class="medium">{{ item }}</h3>
-        </el-carousel-item>
-    </el-carousel>
-
-
+    <el-select v-model="selectedValue" placeholder="请选择性别">
+        <el-option label="男" value="male"></el-option>
+        <el-option label="女" value="female"></el-option>
+    </el-select>
 
     <!--   src="https://wdd.js.org/element-audio/static/falling-star.mp3"-->
 </template>
@@ -199,6 +195,8 @@
 
         data() {
             return {
+                selectedValue: '',
+                region: '',
 
                 gradient: {
                     radial: false,
