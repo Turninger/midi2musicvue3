@@ -257,32 +257,32 @@
                 </vuetyped>
             </h1>
             <p class="u-large-text u-text u-text-variant u-text-2">上传midi文件，生成你的音乐！</p>
-            <a href="/art" data-page-id="1746308"
+            <a href="/creation" data-page-id="1746308"
                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-btn-1">Have a Try！</a>
         </div>
 
 
     </section>
-    <section class="u-align-left u-clearfix u-image u-shading u-section-5" src="" data-image-width="256"
-             data-image-height="256" id="sec-55d6">
-        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-            <h1 class="u-text u-text-default u-title u-text-1">Sample Headline</h1>
-            <p class="u-large-text u-text u-text-variant u-text-2">Sample text. Click to select the text box. Click
-                again or double click to start editing the text.</p>
-        </div>
-    </section>
+<!--    <section class="u-align-left u-clearfix u-image u-shading u-section-5" src="" data-image-width="256"-->
+<!--             data-image-height="256" id="sec-55d6">-->
+<!--        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">-->
+<!--            <h1 class="u-text u-text-default u-title u-text-1">Sample Headline</h1>-->
+<!--            <p class="u-large-text u-text u-text-variant u-text-2">Sample text. Click to select the text box. Click-->
+<!--                again or double click to start editing the text.</p>-->
+<!--        </div>-->
+<!--    </section>-->
 
 
     <section class="u-backlink u-clearfix u-grey-80">
-        <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-            <span>Website Templates</span>
-        </a>
-        <p class="u-text">
-            <span>created with</span>
-        </p>
-        <a class="u-link" href="" target="_blank">
-            <span>Website Builder Software</span>
-        </a>.
+<!--        <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">-->
+<!--            <span>Website Templates</span>-->
+<!--        </a>-->
+<!--        <p class="u-text">-->
+<!--            <span>created with</span>-->
+<!--        </p>-->
+<!--        <a class="u-link" href="" target="_blank">-->
+<!--            <span>Website Builder Software</span>-->
+<!--        </a>.-->
     </section>
     </body>
     </html>

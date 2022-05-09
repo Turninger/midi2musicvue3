@@ -9,7 +9,7 @@ import vuetyped from 'vue3typed'
 import Progress from "easy-circular-progress";
 import Nprogress from "nprogress"
 import 'nprogress/nprogress.css'
-import veProgress from "vue-ellipse-progress";
+
 import request from "@/utils/request";
 
 
@@ -21,7 +21,6 @@ app.use(AudioVisual)
 app.use(vuetyped)
 // .use(Progress)
 app.use(Nprogress)
-// .use(veProgress)
 // app.config.globalProperties.request=request
 app.config.globalProperties.request=request
 app.mount('#app')
