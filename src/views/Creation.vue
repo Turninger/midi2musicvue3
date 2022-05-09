@@ -359,7 +359,12 @@
                 <div class="u-layout">
                     <div class="u-layout-row">
                         <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
-                            <div class="u-container-layout u-container-layout-1"></div>
+                            <div class="u-container-layout u-container-layout-1">
+                                哈哈哈哈啊
+                                <audio src="">
+
+                                </audio>
+                            </div>
                         </div>
                         <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                             <div class="u-container-layout u-container-layout-2">
@@ -568,10 +573,6 @@
             //小提琴
             setViolin() {
                 this.musicArgs.instrument = 'violin'
-                // //console.log(this.instrument)
-                // axios.post('http://localhost:8182/midi/midiCreation', {instrument: this.instrument}).then((resp) => {
-                //     console.log(resp)
-                // })
             },
             // 中提琴
             setViola() {
@@ -636,13 +637,14 @@
 
             genMusic() {
                 //判断音乐生成参数是否含有空值
-                if (this.musicArgs.fileUrl===null){
+                if (this.musicArgs.fileUrl===''){
+                    //alert("请先上传文件")
                     this.$message.error("请先上传文件")
                 }
-                if (this.musicArgs.instrument===null){
+                if (this.musicArgs.instrument===''){
                     this.$message.error("请先选择演奏乐器")
                 }
-                if (this.musicArgs.pitchOff===null||this.musicArgs.speedRate===null){
+                if (this.musicArgs.pitchOff===''||this.musicArgs.speedRate===''){
                     this.$message.error("请选择生成参数")
                 }
                 console.log(this.musicArgs)

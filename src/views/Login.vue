@@ -66,10 +66,10 @@
                         </el-form-item>
 
                     </div>
-                    <div class="u-form-checkbox u-form-group">
-                        <input type="checkbox" id="checkbox-a30d" name="remember" value="On">
-                        <label for="checkbox-a30d" class="u-label">Remember me</label>
-                    </div>
+<!--                    <div class="u-form-checkbox u-form-group">-->
+<!--                        <input type="checkbox" id="checkbox-a30d" name="remember" value="On">-->
+<!--                        <label for="checkbox-a30d" class="u-label">Remember me</label>-->
+<!--                    </div>-->
                     <div class="u-align-left u-form-group u-form-submit">
                         <a @click.prevent="login('ruleForm')" href="#"
                            class="u-border-none u-btn u-btn-submit u-button-style u-hover-grey-10 u-btn-3">登录</a>

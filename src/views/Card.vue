@@ -1,163 +1,93 @@
 <template>
-    <section class="u-carousel u-slide u-block-3462-1" src="" data-image-width="1280" data-image-height="853" id="carousel_eaed" data-interval="5000" data-u-ride="carousel">
+    <Header></Header>
 
-            <el-carousel class="u-carousel u-slide u-block-3462-1" arrow="always" height="800px">
-                <!--        走马灯1-->
-                <el-carousel-item>
-                    <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-1" src="" data-image-width="1280" data-image-height="800">
-                        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                            <h1 class="u-text u-text-default u-title u-text-1">Piano</h1>
-                            <p class="u-large-text u-text u-text-default u-text-variant u-text-2">使用钢琴来演奏我们的测试曲目《欢乐颂》</p>
-                            <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
-                        </div>
-                    </div>
-                </el-carousel-item>
-                <!--        走马灯2-->
-                <el-carousel-item>
-                    <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-2" src="" data-image-width="1280" data-image-height="853">
-                        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                            <h1 class="u-text u-text-default u-title u-text-1">Violin</h1>
-                            <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 使用小提琴来演奏我们的测试曲目《欢乐颂》</p>
-                            <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
-                        </div>
-                    </div>
+    <div>
+        <av-bars
+                caps-color="#FFF"
+                :bar-color="['#f00', '#ff0', '#0f0']"
+                canv-fill-color="#000"
+                :caps-height="2"
+                v-model:audio-src="audioViolin"
+        ></av-bars>
+        <el-button @click="changeAudio">切换音频</el-button>
 
-                </el-carousel-item>
-                <!--        走马灯3-->
-                <el-carousel-item>
-                    <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-3" src="" data-image-width="1280" data-image-height="853">
-                        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                            <h1 class="u-text u-text-default u-title u-text-1">Bass</h1>
-                            <p class="u-large-text u-text u-text-default u-text-variant u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-                            <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
-                        </div>
-                    </div>
+        <audio controls ref="singeBox"></audio>
+        <audio
+                v-model:src="audioViolin"
+                controls="controls">
 
-                </el-carousel-item>
-                <!--        走马灯4-->
-                <el-carousel-item>
-                    <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-4" src="" data-image-width="1280" data-image-height="853">
-                        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                            <h1 class="u-text u-text-default u-title u-text-1">Bass</h1>
-                            <p class="u-large-text u-text u-text-default u-text-variant u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-                            <a href="#" class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-10 u-none u-btn-1">Read More</a>
-                        </div>
-                    </div>
-                </el-carousel-item>
-            </el-carousel>
-
-    </section>
-    <section>
-        <el-carousel trigger="click" height="150px">
-            <el-carousel-item v-for="item in 4" :key="item">
-                <h3 class="small">{{ item }}</h3>
-            </el-carousel-item>
-        </el-carousel>
-    </section>
+        </audio>
+    </div>
 
 
+    <div>
+<!--        <ve-progress-->
+<!--                :data="circles"-->
+<!--                :progress="progress"-->
+<!--                :angle="-90"-->
+<!--                color="blue"-->
+<!--                :colorFill="colorFillGradient"-->
+<!--                emptyColor="#8ec5fc"-->
+<!--                :emptyColorFill="emptyColorFillGradient"-->
+<!--                :size="300"-->
+<!--                :thickness="10"-->
+<!--                emptyThickness="10%"-->
+<!--                lineMode="in 10"-->
+<!--                :legend="true"-->
+<!--                :legendValue="180"-->
+<!--                :legendFormatter="({currentValue}) => new Intl.NumberFormat('de-DE').format(currentValue)"-->
+<!--                legendClass="legend-custom-style"-->
+<!--                dash="60 0.9"-->
+<!--                animation="reverse 700 400"-->
+<!--                :noData="false"-->
+<!--                :loading="false"-->
+<!--                fontColor="white"-->
+<!--                :half="false"-->
+<!--                :gap="10"-->
+<!--                dot="10 blue"-->
+<!--                reverse-->
+<!--                fontSize="5rem">-->
 
-    <!--    <audio controls ref="singeBox"></audio>-->
-    <audio ref="audio"
-           @pause="onPause"
-           @play="onPlay"
-           @timeupdate="onTimeupdate"
-           @loadedmetadata="onLoadedmetadata"
+<!--            <span slot="legend-value">/200</span>-->
+<!--            <p slot="legend-caption">GOOD JOB</p>-->
 
-           :src="audio.src"
-           controls="controls">
+<!--        </ve-progress>-->
 
-    </audio>
-    <img src="../../public/images/1.jpg">
+        <ve-progress
+                :progress="percent"
+                :color="gradient"
+                :thickness="10"
+        >
+            <span slot="legend-value">/200</span>
+            <p slot="legend-caption">GOOD JOB</p>
+        </ve-progress>
 
-    <av-bars
-            caps-color="#FFF"
-            :bar-color="['#f00', '#ff0', '#0f0']"
-            canv-fill-color="#000"
-            :caps-height="2"
-            :audio-src="audio.src"
-    ></av-bars>
+        <el-button @click="addProgress">
+            点击增加5%的进度
+        </el-button>
 
-<div>
-    <el-progress type="circle"
-                 :percentage="100"
-                 :indeterminate="true"
-                 :duration="5"
-                 status="success">
-        <el-button type="success" :icon="Check" circle />
-    </el-progress>
+        <ve-progress
+                :progress="96"
+                :color="gradient"
+                :thickness="10"
+                animation="bounce 1000"
+                loading="true"
+        >
+            <span slot="legend-value">/200</span>
+            <p slot="legend-caption">{{percentages}}</p>
+        </ve-progress>
+    </div>
 
-    <el-progress type="dashboard" :percentage=percentages :indeterminate="true"
-                 :duration="5">
-        <template #default="{ percentage }">
-            <span class="percentage-value">{{ percentages}}%</span>
-            <span class="percentage-label">Progressing</span>
-        </template>
-    </el-progress>
-
-    <el-progress type="circle"
-            :percentage="100"
-            status="warning"
-            :indeterminate="true"
-            :duration="1"
-    />
-</div>
-
-    <ve-progress
-            :data="circles"
-            :progress="progress"
-            :angle="-90"
-            color="blue"
-            :colorFill="colorFillGradient"
-            emptyColor="#8ec5fc"
-            :emptyColorFill="emptyColorFillGradient"
-            :size="300"
-            :thickness="10"
-            emptyThickness="10%"
-            lineMode="in 10"
-            :legend="true"
-            :legendValue="180"
-            :legendFormatter="({currentValue}) => new Intl.NumberFormat('de-DE').format(currentValue)"
-            legendClass="legend-custom-style"
-            dash="60 0.9"
-            animation="reverse 700 400"
-            :noData="false"
-            :loading="false"
-            fontColor="white"
-            :half="false"
-            :gap="10"
-            dot="10 blue"
-            reverse
-            fontSize="5rem">
-
-        <span slot="legend-value">/200</span>
-        <p slot="legend-caption">GOOD JOB</p>
-
-    </ve-progress>
-
-    <ve-progress
-            :progress="96"
-            :color="gradient"
-            :thickness="10"
-            animation="bounce 1000"
-            loading="true"
-    >
-        <span slot="legend-value">/200</span>
-        <p slot="legend-caption">{{percentages}}</p>
-    </ve-progress>
-
-    <el-select v-model="selectedValue" placeholder="请选择性别">
-        <el-option label="男" value="male"></el-option>
-        <el-option label="女" value="female"></el-option>
-    </el-select>
-
-    <!--   src="https://wdd.js.org/element-audio/static/falling-star.mp3"-->
 </template>
 
 <script>
     import NProgress from 'nprogress'
     import 'nprogress/nprogress.css'
     import {VeProgress} from "vue-ellipse-progress";
+    // import veProgress from "vue-ellipse-progress";
+    import audioViolin from '../../public/audio/violin/ode_to_joy.wav'
+    import audioGuitar from '../../public/audio/guitar/ode_to_joy.wav'
+    import Header from "../components/Header";
 
 
     NProgress.start()// 开始
@@ -187,9 +117,8 @@
 
     export default {
         name: "Card",
-        components:{
-            VeProgress
-        },
+        //引入组件
+        components:{VeProgress,Header},
 
 
 
@@ -197,6 +126,9 @@
             return {
                 selectedValue: '',
                 region: '',
+                audioViolin:audioViolin,
+                audioGuitar:audioGuitar,
+                percent:5,
 
                 gradient: {
                     radial: false,
@@ -216,21 +148,15 @@
 
                 percentages :i,
 
-                audio: {
-                    // 该字段是音频是否处于播放状态的属性
-                    playing: false,
-                    // 音频当前播放时长
-                    currentTime: 0,
-                    // 音频最大播放时长
-                    maxTime: 0,
-                    src: require("../../public/audio/RunningWithTheWolves.mp3")
-                }
             }
 
 
 
         },
         methods: {
+            addProgress(){
+                this.percent+=3
+            },
             // 控制音频的播放与暂停
             startPlayOrPause() {
                 return this.audio.playing ? this.pause() : this.play()
@@ -263,6 +189,14 @@
                 console.log('loadedmetadata')
                 console.log(res)
                 this.audio.maxTime = parseInt(res.target.duration)
+            },
+
+            changeAudio(){
+                //console.log(this.audio.src);
+
+                //this.audio.src=require("../../public/audio/violin/ode_to_joy.wav")
+                this.audioViolin=this.audioGuitar
+                console.log(this.audioViolin)
             }
         },
         filters: {
