@@ -14,14 +14,6 @@
               href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
         <link id="u-page-google-font" rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
-
-
-        <!--        <script type="application/ld+json">{-->
-        <!--            "@context": "http://schema.org",-->
-        <!--            "@type": "Organization",-->
-        <!--            "name": "",-->
-        <!--            "url": "/"-->
-        <!--        }</script>-->
         <meta name="theme-color" content="#ff7070">
         <meta property="og:title" content="Art">
         <meta property="og:type" content="website">
@@ -29,17 +21,20 @@
     </head>
     <body class="u-body u-xl-mode">
     <Header></Header>
+
+    <!-- 第一页-->
     <section class="u-clearfix u-image u-section-1" id="sec-1994">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-align-right u-container-style u-group u-group-1">
                 <div class="u-container-layout u-container-layout-1">
-                    <h1 class="u-custom-font u-font-playfair-display u-text u-text-body-alt-color u-title u-text-1">From
-                        Idea<br>to Iconic
+                    <h1 class="u-custom-font u-font-playfair-display u-text u-text-body-alt-color u-title u-text-1">
+                        <vuetyped :strings="['开始生成你的曲目!']" :loop="true" :smart-backspace="true">
+                            <div class="typing" />
+                        </vuetyped>
+
                     </h1>
                     <h5 class="u-custom-font u-font-montserrat u-text u-text-body-alt-color u-text-2">A FULL-SERVICE
-                        CREATIVE AGENCY</h5>
-                    <a href="https://nicepage.app" class="u-border-2 u-border-white u-btn u-button-style u-btn-1">read
-                        more</a>
+                        CREATIVE TOOL</h5>
                 </div>
             </div>
             <img src="../../public/images/Untitled2.png" alt=""
@@ -97,7 +92,7 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Violin</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">选择小提琴来演奏你的音乐！</p>
-                        <a
+                        <a  href="#sec-00b7"
                                 @click="setViolin"
                                 class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                                 data-animation-name="" data-animation-duration="0" data-animation-delay="0"
@@ -112,7 +107,7 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> Viola</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择中提琴来演奏你的音乐！</p>
-                        <a
+                        <a href="#sec-00b7"
                                 @click="setViola"
                                 class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                                 data-animation-name="" data-animation-duration="0" data-animation-delay="0"
@@ -143,6 +138,7 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> DoubleBass</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择低音提琴来演奏你的音乐！</p>
                         <a @click="setDoubleBass"
+                           href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
@@ -157,6 +153,7 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> Flute</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择长笛来演奏你的音乐！</p>
                         <a @click="setFlute"
+                           href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
@@ -172,6 +169,7 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Oboe</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择双簧管来演奏你的音乐！</p>
                         <a @click="setOboe"
+                           href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
@@ -186,6 +184,7 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Clarinet</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择单簧管来演奏你的音乐！</p>
                         <a @click="setClarinet"
+                           href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
@@ -200,6 +199,7 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Saxophone</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择萨克斯来演奏你的音乐！</p>
                         <a @click="setSaxphone"
+                           href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
@@ -214,6 +214,7 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Bassoon</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择巴松管来演奏你的音乐！</p>
                         <a @click="setBassoon"
+                           href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
@@ -228,6 +229,7 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Trumpet</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择小号来演奏你的音乐！</p>
                         <a @click="setTrumpet"
+                           href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
@@ -243,24 +245,13 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Trombone</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择长号来演奏你的音乐！</p>
                         <a @click="setTrombone"
+                           href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
                     </div>
                 </div>
 
-                <!--                   <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-11" src=""-->
-                <!--                        data-image-width="1280" data-image-height="848">-->
-                <!--                       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">-->
-                <!--                           <h1 class="u-text u-text-default u-title u-text-1">Trombone</h1>-->
-                <!--                           <p class="u-large-text u-text u-text-default u-text-variant u-text-2">Sample text. Lorem ipsum dolor-->
-                <!--                               sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>-->
-                <!--                           <a -->
-                <!--                              class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"-->
-                <!--                              data-animation-name="" data-animation-duration="0" data-animation-delay="0"-->
-                <!--                              data-animation-direction="">Read More</a>-->
-                <!--                       </div>-->
-                <!--                   </div>-->
             </el-carousel-item>
 
 
@@ -271,6 +262,7 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Tuba</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">选择大号来演奏你的音乐！</p>
                         <a @click="setTuba"
+                           href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
@@ -285,6 +277,7 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> guitar</h1>
                         <p class="u-large-text u-text u-text-variant u-text-2"> 选择吉他来演奏你的音乐！</p>
                         <a @click="setGuitar"
+                           href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
@@ -510,6 +503,7 @@
     import NProgress from 'nprogress'
     import 'nprogress/nprogress.css'
     import Header from "../components/Header";
+    import request from "../utils/request";
 
     const axios = require('axios');
     export default {
@@ -652,7 +646,7 @@
                     this.$message.error("请选择生成参数")
                 }
                 console.log(this.musicArgs)
-                request.post("http://localhost:8182/creation/genMusic",this.musicArgs).then((resp)=>{
+                this.request.post("http://localhost:8182/creation/genMusic",this.musicArgs).then((resp)=>{
                     console.log(resp)
                 })
             },
@@ -1123,7 +1117,7 @@
     }
 
     .u-section-3-4 {
-        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../../public/images/g5b04bff5db05c20c88280d0f179661cce6890762008dad067ae8408a1437c6fdf759d18f2557d5195039d808ba464399927b141fff7c6edf68bf021548ad560f_1280.jpg");
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../../public/images/violin-3621677_1920.jpg");
         background-position: 50% 50%;
     }
 
