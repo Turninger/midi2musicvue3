@@ -18,13 +18,17 @@
                 <div style="display: inline-block">
 <!--                    <span>{{ users===null?'登录':users.username }}</span><i class="el-icon-arrow-down" style="margin-left: 5px"></i>-->
                 </div>
-<!--                <span class="el-dropdown-link">{{users.username}}</span>-->
+                <span v-if="users==null" class="el-dropdown-link">
+                    <a href="/login">未登录，点此登录   </a>
+                    <a style="margin-left: 10px" href="/register">   注册</a>
+                </span>
+                <span v-if="users" class="el-dropdown-link">欢迎！，{{users.username}}</span>
                     <template #dropdown>
-                        <el-dropdown-menu>
-                            <el-dropdown-item>Action 1</el-dropdown-item>
-                            <el-dropdown-item>Action 2</el-dropdown-item>
-                            <el-dropdown-item>Action 3</el-dropdown-item>
-                            <el-dropdown-item disabled>Action 4</el-dropdown-item>
+                        <el-dropdown-menu v-if="users">
+<!--                            <el-dropdown-item>Action 1</el-dropdown-item>-->
+<!--                            <el-dropdown-item>Action 2</el-dropdown-item>-->
+<!--                            <el-dropdown-item>Action 3</el-dropdown-item>-->
+<!--                            <el-dropdown-item disabled>Action 4</el-dropdown-item>-->
                             <el-dropdown-item>
                                 <span @click="logout">退出</span>
                             </el-dropdown-item>
@@ -51,7 +55,7 @@
         },
         data() {
             return {
-               // users: localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")):null
+               users: localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")):null
 
             }
         },

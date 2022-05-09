@@ -201,7 +201,7 @@
                         }
                         request.post('http://localhost:8182/user/register', this.users).then((resp) => {
                             if (resp.code === "200") {
-                                // localStorage.setItem("user", JSON.stringify(resp.data))  // 存储用户信息到浏览器
+                                localStorage.setItem("user", JSON.stringify(resp.data))  // 存储用户信息到浏览器
                                 // localStorage.setItem("menus", JSON.stringify(resp.data.menus))  // 存储用户信息到浏览器
                                 this.$message.success("注册成功")
                                 this.$router.push("/")
