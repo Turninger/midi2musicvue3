@@ -396,59 +396,96 @@
                     <div class="u-layout-col">
                         <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                             <div class="u-container-layout u-container-layout-1">
-                                <h1 class="u-text u-text-default u-title u-text-1">表达控制</h1>
+                                <h1 class="u-text u-text-default u-title u-text-1">
+                                    <vuetyped :strings="['详细的表达控制']" :loop="true" :smart-backspace="true">
+                                        <div class="typing"/>
+                                    </vuetyped></h1>
                                 <p class="u-large-text u-text u-text-variant u-text-2">修改表格中的表达控件参数以获得独一无二的音乐！</p>
+
                             </div>
+
                         </div>
                         <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                             <div class="u-container-layout u-container-layout-2">
-                                哈哈哈哈哈哈
-                                <el-table
-                                        :data="tableData"
+                                <vxe-table
+                                        height="500"
                                         border
-                                        style="width: 100%">
-                                    <el-table-column
-                                            fixed
-                                            prop="date"
-                                            label="日期"
-                                            width="150">
-                                    </el-table-column>
-                                    <el-table-column
-                                            prop="name"
-                                            label="姓名"
-                                            width="120">
-                                    </el-table-column>
-                                    <el-table-column
-                                            prop="province"
-                                            label="省份"
-                                            width="120">
-                                    </el-table-column>
-                                    <el-table-column
-                                            prop="city"
-                                            label="市区"
-                                            width="120">
-                                    </el-table-column>
-                                    <el-table-column
-                                            prop="address"
-                                            label="地址"
-                                            width="300">
-                                    </el-table-column>
-                                    <el-table-column
-                                            prop="zip"
-                                            label="邮编"
-                                            width="120">
-                                    </el-table-column>
-                                    <el-table-column
-                                            fixed="right"
-                                            label="操作"
-                                            width="100">
-                                        <template slot-scope="scope">
-                                            <el-button @click="handleClick(scope.row)" type="text" size="small">查看
-                                            </el-button>
-                                            <el-button type="text" size="small">编辑</el-button>
+                                        show-overflow
+                                        :data="tableData"
+                                        :column-config="{resizable: true}"
+                                        :edit-config="{trigger: 'click', mode: 'cell'}">
+                                    <vxe-column type="seq" width="60"></vxe-column>
+                                    <!--            amplitudeStd-->
+                                    <vxe-column field="amplitudeMean" title="amplitudeMean" :edit-render="{autofocus: '.vxe-input--inner'}">
+                                        <template #edit="{ row }">
+                                            <vxe-input v-model="row.amplitudeMean" type="number"></vxe-input>
                                         </template>
-                                    </el-table-column>
-                                </el-table>
+                                    </vxe-column>
+                                    <!--            amplitudeStd-->
+                                    <vxe-column field="amplitudeStd" title="amplitudeStd" :edit-render="{}">
+                                        <template #edit="{ row }">
+                                            <vxe-input v-model="row.amplitudeStd" type="number" placeholder="请输入昵称"></vxe-input>
+                                        </template>
+                                    </vxe-column>
+
+
+                                    <vxe-column field="vibratoExtend" title="vibratoExtend" :edit-render="{}">
+                                        <template #edit="{ row }">
+                                            <vxe-input v-model="row.vibratoExtend" type="number" placeholder="请输入数值"></vxe-input>
+                                        </template>
+                                    </vxe-column>
+
+                                    <vxe-column field="brightness" title="brightness" :edit-render="{}">
+                                        <template #edit="{ row }">
+                                            <vxe-input v-model="row.brightness" type="number" placeholder="请输入数值"></vxe-input>
+                                        </template>
+                                    </vxe-column>
+
+                                    <vxe-column field="attackLevel" title="attackLevel" :edit-render="{}">
+                                        <template #edit="{ row }">
+                                            <vxe-input v-model="row.attackLevel" type="number" placeholder="请输入数值"></vxe-input>
+                                        </template>
+                                    </vxe-column>
+
+                                    <vxe-column field="pitch" title="pitch" :edit-render="{}">
+                                        <template #edit="{ row }">
+                                            <vxe-input v-model="row.pitch" type="number" placeholder="请输入数值"></vxe-input>
+                                        </template>
+                                    </vxe-column>
+
+                                    <vxe-column field="noteLength" title="noteLength" :edit-render="{}">
+                                        <template #edit="{ row }">
+                                            <vxe-input v-model="row.noteLength" type="number" placeholder="请输入数值"></vxe-input>
+                                        </template>
+                                    </vxe-column>
+
+                                    <vxe-column field="amplitudesMaxPos" title="amplitudesMaxPos" :edit-render="{}">
+                                        <template #edit="{ row }">
+                                            <vxe-input v-model="row.amplitudesMaxPos" type="text"></vxe-input>
+                                        </template>
+                                    </vxe-column>
+
+                                    <vxe-column field="onset" title="onset" :edit-render="{}">
+                                        <template #edit="{ row }">
+                                            <vxe-input v-model="row.onset" type="text"></vxe-input>
+                                        </template>
+                                    </vxe-column>
+
+
+                                    <vxe-column field="offset" title="offset" :edit-render="{}">
+                                        <template #edit="{ row }">
+                                            <vxe-input v-model="row.offset" type="text"></vxe-input>
+                                        </template>
+                                    </vxe-column>
+                                </vxe-table>
+
+                                <a style="margin-top:20px"
+                                   v-if="tableData!=null"
+                                   href="#carousel_e038"
+                                   @click="reGenMusic"
+                                   class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1">
+                                    重新生成</a>
+
                             </div>
                         </div>
                     </div>
@@ -514,6 +551,24 @@
     export default {
         name: "Creation",
         components: {Header},
+        created(){
+            this.request.post('http://localhost:8182/creation/conditioningFindAll').then((resp) => {
+                if (resp.code === "200") {
+                    // localStorage.setItem("users", JSON.stringify(resp.data))  // 存储用户信息到浏览器
+                    // //localStorage.setItem("menus", JSON.stringify(resp.data.menus))  // 存储用户信息到浏览器
+                    // //console.log(localStorage.getItem("users"))
+                    // this.$message.success("登录成功")
+                    // this.$router.replace({path:'/'})
+
+                    //成功获取数据
+                    console.log(resp.data)
+                    this.tableData=resp.data
+                } else {
+                    this.$message.error(resp.msg)
+                }
+                //console.log(resp)
+            });
+        },
         data() {
             return {
                 //音乐演奏参数
@@ -527,35 +582,7 @@
                     //演奏速度
                     speedRate: '',
                 },
-                tableData: [{
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1517 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-01',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1519 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1516 弄',
-                    zip: 200333
-                }],
+                tableData: null,
 
                 instrument: '',
                 fileList: [{
@@ -652,6 +679,14 @@
                     console.log(resp)
                 })
             },
+            reGenMusic(){
+                //判断音乐生成参数是否含有空值
+                //this.tableData =
+                console.log(this.tableData)
+                this.request.post("http://localhost:8182/creation/reGenMusic",this.tableData,this.musicArgs).then((resp)=>{
+                    console.log(resp)
+                })
+            },
             //文件上传成功的回调函数
             handleSuccess(item, response, file) {
                 //console.log(response)
@@ -682,6 +717,41 @@
 </script>
 
 <style scoped>
+/*vxe-table 表格样式*/
+    /*修改表头背景色*/
+    .vxe-table--header-wrapper,.vxe-header--row,.vxe-table--header{
+        background-color: #2C3846;
+    }
+
+
+    /*调整表格行高*/
+    .vxe-table .vxe-body--column:not(.col--ellipsis), .vxe-table .vxe-footer--column:not(.col--ellipsis), .vxe-table .vxe-header--column:not(.col--ellipsis) {
+        padding: 5px 0;
+    }
+    /*调整表格 单元格背景颜色*/
+    .vxe-table .vxe-table--body-wrapper, .vxe-table .vxe-table--footer-wrapper {
+        background-color: #ffd967;
+    }
+    /*调整表格文字及位置*/
+    .vxe-table .vxe-body--column, .vxe-table .vxe-footer--column, .vxe-table .vxe-header--column {
+        position: relative;
+        line-height: 24px;
+        text-align: center;
+        color: #ffffff;
+    }
+    /*调整表头首行  line 的颜色*/
+    .vxe-table .vxe-table--header-wrapper .vxe-table--header-border-line {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 0;
+        border-bottom: 1px solid #e8eaec;
+    }
+
+    .vxe-body--row.row--hover{
+        background-color: rgba(255,255,255,0.3) !important;
+    }
+
     .u-section-1 {
         background-image: url("../../public/images/pexelsphoto342520.jpeg");
         background-position: 50% 50%;
