@@ -187,8 +187,8 @@
     NProgress.inc() // 增加一点点
     NProgress.done() // 完成
 
-
-
+    //var source = new EventSource('http://localhost:7901/demo/sse/test/subscribe?id=qwe');
+    let socket;
 
     export default {
         name: "Card",
@@ -230,15 +230,10 @@
                         },
                     ]
                 },
-
-                percentages :i,
-
             }
-
-
-
         },
         created() {
+            this.init()
             this.request.post('http://localhost:8182/creation/conditioningFindAll').then((resp) => {
                 if (resp.code === "200") {
                     // localStorage.setItem("users", JSON.stringify(resp.data))  // 存储用户信息到浏览器
@@ -257,6 +252,50 @@
             });
         },
         methods: {
+            init(){
+                let that = this;
+                if (typeof (WebSocket) == "undefined") {
+                    console.log("您的浏览器不支持WebSocket");
+                } else {
+                    console.log("您的浏览器支持WebSocket");
+                    let socketUrl = "ws://localhost:8182/imserver/"
+                    if (socket != null) {
+                        socket.close();
+                        socket = null;
+                    }
+                    // 开启一个websocket服务
+                    socket = new WebSocket(socketUrl);
+                    //打开事件
+                    socket.onopen = function () {
+                        console.log("websocket已打开");
+                    };
+                    //  浏览器端收消息，获得从服务端发送过来的文本消息
+                    socket.onmessage = function (msg) {
+                        console.log("收到数据====" + msg.data)
+                        let data = JSON.parse(msg.data)
+                        if (data.userNames) {
+                            // userNames存在则是有人登录，获取在线人员信息
+                            that.userList = data.userNames
+                        } else {
+                            // userNames不存在则是有人发消息
+                            that.msgList.push(data)
+                        }
+                    };
+                    //关闭事件
+                    socket.onclose = function () {
+                        console.log("websocket已关闭");
+                    };
+                    //发生了错误事件
+                    socket.onerror = function () {
+                        console.log("websocket发生了错误");
+                    }
+                }
+
+            },
+
+            msg(msg){
+                console.log(msg)
+            },
             addProgress(){
                 this.percent+=3
             },

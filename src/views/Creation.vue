@@ -123,7 +123,7 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> Cello</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择大提琴来演奏你的音乐！</p>
-                        <a @click="setCello"
+                        <a href="#sec-00b7" @click="setCello"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                            data-animation-direction="">确认选择</a>
@@ -198,7 +198,7 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Saxophone</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择萨克斯来演奏你的音乐！</p>
-                        <a @click="setSaxphone"
+                        <a  @click="setSaxphone"
                            href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
@@ -213,7 +213,7 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Bassoon</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择巴松管来演奏你的音乐！</p>
-                        <a @click="setBassoon"
+                        <a  @click="setBassoon"
                            href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
@@ -228,7 +228,7 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Trumpet</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择小号来演奏你的音乐！</p>
-                        <a @click="setTrumpet"
+                        <a  @click="setTrumpet"
                            href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
@@ -360,10 +360,19 @@
                     <div class="u-layout-row">
                         <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
                             <div class="u-container-layout u-container-layout-1">
-                                哈哈哈哈啊
-                                <audio src="">
+                                <ve-progress
+                                        v-if="percent!=100"
+                                        :progress="percent"
+                                        :color="gradient"
+                                        :thickness="20"
+                                        style="margin-top: 200px"
 
-                                </audio>
+                                >
+                                    <span slot="legend-value">{{percent}}/100</span>
+                                    <p slot="legend-caption">正在生成</p>
+                                </ve-progress>
+<!--                                <audio v-model:src="genMusicUrl" >-->
+<!--                                </audio>-->
                             </div>
                         </div>
                         <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-2">
@@ -546,11 +555,12 @@
     import 'nprogress/nprogress.css'
     import Header from "../components/Header";
     import request from "../utils/request";
+    import {VeProgress} from "vue-ellipse-progress";
 
     const axios = require('axios');
     export default {
         name: "Creation",
-        components: {Header},
+        components:{VeProgress,Header},
         created(){
             this.request.post('http://localhost:8182/creation/conditioningFindAll').then((resp) => {
                 if (resp.code === "200") {
@@ -571,6 +581,10 @@
         },
         data() {
             return {
+                //生成wav文件的路径
+                //genMusicUrl:require("E:\\midi2music\\music\\GenMusic\\"+this.musicArgs.fileUrl),
+                //经过调整参数后的wav文件的路径
+                reGenMusicUrl:'',
                 //音乐演奏参数
                 musicArgs: {
                     //上传文件的路径
@@ -583,7 +597,25 @@
                     speedRate: '',
                 },
                 tableData: null,
-
+                //进度条参数
+                //进度条进度
+                percent:0,
+                //进度条颜色（渐变）
+                gradient: {
+                    radial: false,
+                    colors: [
+                        {
+                            color: '#6546f7',
+                            offset: "0",
+                            opacity: '1',
+                        },
+                        {
+                            color: 'lime',
+                            offset: "100",
+                            opacity: '0.6',
+                        },
+                    ]
+                },
                 instrument: '',
                 fileList: [{
                     name: 'food.jpeg',
@@ -678,6 +710,27 @@
                 this.request.post("http://localhost:8182/creation/genMusic",this.musicArgs).then((resp)=>{
                     console.log(resp)
                 })
+                //如果进度未满
+                if (this.percent!=100){
+                    //发送定时请求 刷新进度条进度
+                    var timer = setInterval(()=>{
+                        this.request.post("http://localhost:8182/creation/flushPercent").then((resp)=>{
+                            console.log(resp)
+                            this.percent=resp
+                        })
+                    },500)
+                }
+                if (this.percent===100){
+                    //如果进度已满，则停止计时轮询
+                    clearInterval(timer);
+                    //查询是否结束生成 返回生成wav的路径
+                    this.request.post("http://localhost:8182/creation/flushPercent").then((resp)=>{
+                        console.log(resp)
+                        this.percent=resp
+                    })
+                }
+
+
             },
             reGenMusic(){
                 //判断音乐生成参数是否含有空值
