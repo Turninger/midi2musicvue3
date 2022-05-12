@@ -78,6 +78,97 @@
         </ve-progress>
     </div>
 
+    <div>
+        <vxe-table border :data="tableData">
+            <vxe-column field="id" title="ID" width="60"></vxe-column>
+            <vxe-column field="name" title="Name">
+                <template #default="{ row }">
+                    <span>自定义插槽模板 {{ row.name }}</span>
+                </template>
+            </vxe-column>
+            <vxe-column field="sex" title="Sex"></vxe-column>
+            <vxe-column field="age" title="Age"></vxe-column>
+        </vxe-table>
+    </div>
+
+    <div>
+        <vxe-table
+                border
+                show-overflow
+                :data="tableData1"
+                :column-config="{resizable: true}"
+                :edit-config="{trigger: 'click', mode: 'cell'}">
+            <vxe-column type="seq" width="60"></vxe-column>
+<!--            amplitudeStd-->
+            <vxe-column field="amplitudeMean" title="amplitudeMean" :edit-render="{autofocus: '.vxe-input--inner'}">
+                <template #edit="{ row }">
+                    <vxe-input v-model="row.amplitudeMean" type="number"></vxe-input>
+                </template>
+            </vxe-column>
+<!--            amplitudeStd-->
+            <vxe-column field="amplitudeStd" title="amplitudeStd" :edit-render="{}">
+                <template #edit="{ row }">
+                    <vxe-input v-model="row.amplitudeStd" type="number" placeholder="请输入昵称"></vxe-input>
+                </template>
+            </vxe-column>
+
+
+            <vxe-column field="vibratoExtend" title="vibratoExtend" :edit-render="{}">
+                <template #edit="{ row }">
+                    <vxe-input v-model="row.vibratoExtend" type="number" placeholder="请输入数值"></vxe-input>
+                </template>
+            </vxe-column>
+
+            <vxe-column field="brightness" title="brightness" :edit-render="{}">
+                <template #edit="{ row }">
+                    <vxe-input v-model="row.brightness" type="number" placeholder="请输入数值"></vxe-input>
+                </template>
+            </vxe-column>
+
+            <vxe-column field="attackLevel" title="attackLevel" :edit-render="{}">
+                <template #edit="{ row }">
+                    <vxe-input v-model="row.attackLevel" type="number" placeholder="请输入数值"></vxe-input>
+                </template>
+            </vxe-column>
+
+            <vxe-column field="pitch" title="pitch" :edit-render="{}">
+                <template #edit="{ row }">
+                    <vxe-input v-model="row.pitch" type="number" placeholder="请输入数值"></vxe-input>
+                </template>
+            </vxe-column>
+
+            <vxe-column field="noteLength" title="noteLength" :edit-render="{}">
+                <template #edit="{ row }">
+                    <vxe-input v-model="row.noteLength" type="number" placeholder="请输入数值"></vxe-input>
+                </template>
+            </vxe-column>
+
+            <vxe-column field="amplitudesMaxPos" title="amplitudesMaxPos" :edit-render="{}">
+                <template #edit="{ row }">
+                    <vxe-input v-model="row.amplitudesMaxPos" type="text"></vxe-input>
+                </template>
+            </vxe-column>
+
+            <vxe-column field="onset" title="onset" :edit-render="{}">
+                <template #edit="{ row }">
+                    <vxe-input v-model="row.onset" type="text"></vxe-input>
+                </template>
+            </vxe-column>
+
+
+            <vxe-column field="offset" title="offset" :edit-render="{}">
+                <template #edit="{ row }">
+                    <vxe-input v-model="row.offset" type="text"></vxe-input>
+                </template>
+            </vxe-column>
+        </vxe-table>
+    </div>
+
+    <div>
+
+
+    </div>
+
 </template>
 
 <script>
@@ -88,6 +179,7 @@
     import audioViolin from '../../public/audio/violin/ode_to_joy.wav'
     import audioGuitar from '../../public/audio/guitar/ode_to_joy.wav'
     import Header from "../components/Header";
+    import request from "../utils/request";
 
 
     NProgress.start()// 开始
@@ -95,25 +187,8 @@
     NProgress.inc() // 增加一点点
     NProgress.done() // 完成
 
-    function realFormatSecond(second) {
-        var secondType = typeof second
-
-        if (secondType === 'number' || secondType === 'string') {
-            second = parseInt(second)
-
-            var hours = Math.floor(second / 3600)
-            second = second - hours * 3600
-            var mimute = Math.floor(second / 60)
-            second = second - mimute * 60
-
-            return hours + ':' + ('0' + mimute).slice(-2) + ':' + ('0' + second).slice(-2)
-        } else {
-            return '0:00:00'
-        }
-    }
-    for (var i=0;i<100;i++){
-
-    }
+    //var source = new EventSource('http://localhost:7901/demo/sse/test/subscribe?id=qwe');
+    let socket;
 
     export default {
         name: "Card",
@@ -124,6 +199,16 @@
 
         data() {
             return {
+                tableData: [
+                    {id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc'},
+                    {id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou'},
+                    {id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai'},
+                    {id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai'}
+                ],
+
+                tableData1:null,
+
+
                 selectedValue: '',
                 region: '',
                 audioViolin:audioViolin,
@@ -145,15 +230,72 @@
                         },
                     ]
                 },
-
-                percentages :i,
-
             }
+        },
+        created() {
+            this.init()
+            this.request.post('http://localhost:8182/creation/conditioningFindAll').then((resp) => {
+                if (resp.code === "200") {
+                    // localStorage.setItem("users", JSON.stringify(resp.data))  // 存储用户信息到浏览器
+                    // //localStorage.setItem("menus", JSON.stringify(resp.data.menus))  // 存储用户信息到浏览器
+                    // //console.log(localStorage.getItem("users"))
+                    // this.$message.success("登录成功")
+                    // this.$router.replace({path:'/'})
 
-
-
+                    //成功获取数据
+                    console.log(resp.data)
+                    this.tableData1=resp.data
+                } else {
+                    this.$message.error(resp.msg)
+                }
+                //console.log(resp)
+            });
         },
         methods: {
+            init(){
+                let that = this;
+                if (typeof (WebSocket) == "undefined") {
+                    console.log("您的浏览器不支持WebSocket");
+                } else {
+                    console.log("您的浏览器支持WebSocket");
+                    let socketUrl = "ws://localhost:8182/imserver/"
+                    if (socket != null) {
+                        socket.close();
+                        socket = null;
+                    }
+                    // 开启一个websocket服务
+                    socket = new WebSocket(socketUrl);
+                    //打开事件
+                    socket.onopen = function () {
+                        console.log("websocket已打开");
+                    };
+                    //  浏览器端收消息，获得从服务端发送过来的文本消息
+                    socket.onmessage = function (msg) {
+                        console.log("收到数据====" + msg.data)
+                        let data = JSON.parse(msg.data)
+                        if (data.userNames) {
+                            // userNames存在则是有人登录，获取在线人员信息
+                            that.userList = data.userNames
+                        } else {
+                            // userNames不存在则是有人发消息
+                            that.msgList.push(data)
+                        }
+                    };
+                    //关闭事件
+                    socket.onclose = function () {
+                        console.log("websocket已关闭");
+                    };
+                    //发生了错误事件
+                    socket.onerror = function () {
+                        console.log("websocket发生了错误");
+                    }
+                }
+
+            },
+
+            msg(msg){
+                console.log(msg)
+            },
             addProgress(){
                 this.percent+=3
             },
