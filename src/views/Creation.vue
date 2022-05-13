@@ -29,7 +29,7 @@
                 <div class="u-container-layout u-container-layout-1">
                     <h1 class="u-custom-font u-font-playfair-display u-text u-text-body-alt-color u-title u-text-1">
                         <vuetyped :strings="['开始生成你的曲目!']" :loop="true" :smart-backspace="true">
-                            <div class="typing" />
+                            <div class="typing"/>
                         </vuetyped>
 
                     </h1>
@@ -92,11 +92,11 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Violin</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2">选择小提琴来演奏你的音乐！</p>
-                        <a  href="#sec-00b7"
-                                @click="setViolin"
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">确认选择</a>
+                        <a href="#sec-00b7"
+                           @click="setViolin"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -108,10 +108,10 @@
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1"> Viola</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择中提琴来演奏你的音乐！</p>
                         <a href="#sec-00b7"
-                                @click="setViola"
-                                class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                                data-animation-direction="">确认选择</a>
+                           @click="setViola"
+                           class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                           data-animation-direction="">确认选择</a>
                     </div>
                 </div>
             </el-carousel-item>
@@ -198,7 +198,7 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Saxophone</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择萨克斯来演奏你的音乐！</p>
-                        <a  @click="setSaxphone"
+                        <a @click="setSaxphone"
                            href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
@@ -213,7 +213,7 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Bassoon</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择巴松管来演奏你的音乐！</p>
-                        <a  @click="setBassoon"
+                        <a @click="setBassoon"
                            href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
@@ -228,7 +228,7 @@
                     <div>
                         <h1 style="margin-top: 240px" class="u-text u-text-default u-title u-text-1">Trumpet</h1>
                         <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> 选择小号来演奏你的音乐！</p>
-                        <a  @click="setTrumpet"
+                        <a @click="setTrumpet"
                            href="#sec-00b7"
                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
@@ -304,10 +304,10 @@
                             <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                                 <div class="u-container-layout u-container-layout-1">
                                     <select v-model="musicArgs.pitchOff" size="large" placeholder="请选择演奏音调"
-                                               class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
-                                               data-animation-name="" data-animation-duration="0"
-                                               data-animation-delay="0"
-                                               data-animation-direction="">
+                                            class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1"
+                                            data-animation-name="" data-animation-duration="0"
+                                            data-animation-delay="0"
+                                            data-animation-direction="">
 
                                         <option>-1.0</option>
                                         <option>-0.5</option>
@@ -361,18 +361,24 @@
                         <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
                             <div class="u-container-layout u-container-layout-1">
                                 <ve-progress
-                                        v-if="percent!=100"
-                                        :progress="percent"
+                                        v-if="showGenMusicProgress"
+                                        :progress="genMusicPercent"
                                         :color="gradient"
                                         :thickness="20"
-                                        style="margin-top: 200px"
-
+                                        :size="300"
+                                        style="margin-top: 150px"
                                 >
-                                    <span slot="legend-value">{{percent}}/100</span>
+                                    <span slot="legend-value">{{genMusicPercent}}/100</span>
                                     <p slot="legend-caption">正在生成</p>
                                 </ve-progress>
-<!--                                <audio v-model:src="genMusicUrl" >-->
-<!--                                </audio>-->
+                                <audio v-if="isGenMusic===true" style="margin-top: 300px"
+                                       :src="genMusicUrl"
+                                       ref="audio1"
+                                       controls="controls">
+
+                                </audio>
+                                <audio :src="genMusicUrl">
+                                </audio>
                             </div>
                         </div>
                         <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-2">
@@ -381,13 +387,13 @@
                                 </h2>
                                 <h4 class="u-text u-text-body-alt-color u-text-2">继续调整参数，<br>获取更理想的音乐！
                                 </h4>
-                                <a href="https://nicepage.com/landing-page"
+                                <a @click="play1"
                                    class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1">播放</a>
-                                <a href="https://nicepage.com/landing-page"
+                                <a @click="pause1"
                                    class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1">暂停</a>
-                                <a href="https://nicepage.com/landing-page"
-                                   class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-3">下载
-                                    .WAV</a>
+<!--                                <a @click="download1"-->
+<!--                                   class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-3">下载-->
+<!--                                    .WAV</a>-->
                             </div>
                         </div>
                     </div>
@@ -408,7 +414,8 @@
                                 <h1 class="u-text u-text-default u-title u-text-1">
                                     <vuetyped :strings="['详细的表达控制']" :loop="true" :smart-backspace="true">
                                         <div class="typing"/>
-                                    </vuetyped></h1>
+                                    </vuetyped>
+                                </h1>
                                 <p class="u-large-text u-text u-text-variant u-text-2">修改表格中的表达控件参数以获得独一无二的音乐！</p>
 
                             </div>
@@ -423,9 +430,10 @@
                                         :data="tableData"
                                         :column-config="{resizable: true}"
                                         :edit-config="{trigger: 'click', mode: 'cell'}">
-                                    <vxe-column type="seq" width="60"></vxe-column>
+                                    <vxe-column title="note" type="seq" width="60"></vxe-column>
                                     <!--            amplitudeStd-->
-                                    <vxe-column field="amplitudeMean" title="amplitudeMean" :edit-render="{autofocus: '.vxe-input--inner'}">
+                                    <vxe-column field="amplitudeMean" title="amplitudeMean"
+                                                :edit-render="{autofocus: '.vxe-input--inner'}">
                                         <template #edit="{ row }">
                                             <vxe-input v-model="row.amplitudeMean" type="number"></vxe-input>
                                         </template>
@@ -433,38 +441,44 @@
                                     <!--            amplitudeStd-->
                                     <vxe-column field="amplitudeStd" title="amplitudeStd" :edit-render="{}">
                                         <template #edit="{ row }">
-                                            <vxe-input v-model="row.amplitudeStd" type="number" placeholder="请输入昵称"></vxe-input>
+                                            <vxe-input v-model="row.amplitudeStd" type="number"
+                                                       placeholder="请输入昵称"></vxe-input>
                                         </template>
                                     </vxe-column>
 
 
                                     <vxe-column field="vibratoExtend" title="vibratoExtend" :edit-render="{}">
                                         <template #edit="{ row }">
-                                            <vxe-input v-model="row.vibratoExtend" type="number" placeholder="请输入数值"></vxe-input>
+                                            <vxe-input v-model="row.vibratoExtend" type="number"
+                                                       placeholder="请输入数值"></vxe-input>
                                         </template>
                                     </vxe-column>
 
                                     <vxe-column field="brightness" title="brightness" :edit-render="{}">
                                         <template #edit="{ row }">
-                                            <vxe-input v-model="row.brightness" type="number" placeholder="请输入数值"></vxe-input>
+                                            <vxe-input v-model="row.brightness" type="number"
+                                                       placeholder="请输入数值"></vxe-input>
                                         </template>
                                     </vxe-column>
 
                                     <vxe-column field="attackLevel" title="attackLevel" :edit-render="{}">
                                         <template #edit="{ row }">
-                                            <vxe-input v-model="row.attackLevel" type="number" placeholder="请输入数值"></vxe-input>
+                                            <vxe-input v-model="row.attackLevel" type="number"
+                                                       placeholder="请输入数值"></vxe-input>
                                         </template>
                                     </vxe-column>
 
                                     <vxe-column field="pitch" title="pitch" :edit-render="{}">
                                         <template #edit="{ row }">
-                                            <vxe-input v-model="row.pitch" type="number" placeholder="请输入数值"></vxe-input>
+                                            <vxe-input v-model="row.pitch" type="number"
+                                                       placeholder="请输入数值"></vxe-input>
                                         </template>
                                     </vxe-column>
 
                                     <vxe-column field="noteLength" title="noteLength" :edit-render="{}">
                                         <template #edit="{ row }">
-                                            <vxe-input v-model="row.noteLength" type="number" placeholder="请输入数值"></vxe-input>
+                                            <vxe-input v-model="row.noteLength" type="number"
+                                                       placeholder="请输入数值"></vxe-input>
                                         </template>
                                     </vxe-column>
 
@@ -511,7 +525,28 @@
                 <div class="u-layout">
                     <div class="u-layout-row">
                         <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
-                            <div class="u-container-layout u-container-layout-1"></div>
+                            <div class="u-container-layout u-container-layout-1">
+
+                                <ve-progress
+                                        v-if="showReGenMusicProgress"
+                                        :progress="reGenMusicPercent"
+                                        :color="reGradient"
+                                        :thickness="20"
+                                        :size="300"
+                                        style="margin-top: 150px"
+                                >
+                                    <span slot="legend-value">{{reGenMusicPercent}}/100</span>
+                                    <p slot="legend-caption">正在生成</p>
+                                </ve-progress>
+
+                                <audio v-if="isReGenMusic==true"
+                                       style="margin-top: 300px"
+                                       :src="reGenMusicUrl"
+                                       controls="controls"
+                                       ref="audio2">
+
+                                </audio>
+                            </div>
                         </div>
                         <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                             <div class="u-container-layout u-container-layout-2">
@@ -519,13 +554,13 @@
                                 </h2>
                                 <h4 class="u-text u-text-body-alt-color u-text-2">继续调整参数，<br>获取更理想的音乐！
                                 </h4>
-                                <a href="https://nicepage.com/landing-page"
+                                <a @click="play2"
                                    class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1">播放</a>
-                                <a href="https://nicepage.com/landing-page"
+                                <a @click="pause2"
                                    class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-1">暂停</a>
-                                <a href="https://nicepage.com/landing-page"
-                                   class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-3">下载
-                                    .WAV</a>
+<!--                                <a @click="download2"-->
+<!--                                   class="u-border-2 u-border-white u-btn u-button-style u-hover-grey-15 u-none u-text-hover-black u-btn-3">下载-->
+<!--                                    .WAV</a>-->
                             </div>
                         </div>
                     </div>
@@ -560,31 +595,22 @@
     const axios = require('axios');
     export default {
         name: "Creation",
-        components:{VeProgress,Header},
-        created(){
-            this.request.post('http://localhost:8182/creation/conditioningFindAll').then((resp) => {
-                if (resp.code === "200") {
-                    // localStorage.setItem("users", JSON.stringify(resp.data))  // 存储用户信息到浏览器
-                    // //localStorage.setItem("menus", JSON.stringify(resp.data.menus))  // 存储用户信息到浏览器
-                    // //console.log(localStorage.getItem("users"))
-                    // this.$message.success("登录成功")
-                    // this.$router.replace({path:'/'})
+        components: {VeProgress, Header},
+        created() {
 
-                    //成功获取数据
-                    console.log(resp.data)
-                    this.tableData=resp.data
-                } else {
-                    this.$message.error(resp.msg)
-                }
-                //console.log(resp)
-            });
         },
         data() {
             return {
+                showGenMusicProgress: false,
+                showReGenMusicProgress: false,
+                isGenMusic: false,
+                isReGenMusic: false,
                 //生成wav文件的路径
-                //genMusicUrl:require("E:\\midi2music\\music\\GenMusic\\"+this.musicArgs.fileUrl),
+                genMusicUrl: null,
                 //经过调整参数后的wav文件的路径
-                reGenMusicUrl:'',
+                reGenMusicUrl: null,
+                downloadUrl1:'',
+                downloadUrl2:'',
                 //音乐演奏参数
                 musicArgs: {
                     //上传文件的路径
@@ -599,34 +625,50 @@
                 tableData: null,
                 //进度条参数
                 //进度条进度
-                percent:0,
+                genMusicPercent: 0,
+                genMusicSlot: '',
+                reGenMusicPercent: 0,
+                reGenMusicSlot: '',
                 //进度条颜色（渐变）
                 gradient: {
                     radial: false,
                     colors: [
                         {
-                            color: '#6546f7',
+                            color: '#ff1e9b',
                             offset: "0",
                             opacity: '1',
                         },
                         {
-                            color: 'lime',
+                            color: '#fff207',
+                            offset: "100",
+                            opacity: '0.6',
+                        },
+                    ]
+                },
+
+                reGradient: {
+                    radial: false,
+                    colors: [
+                        {
+                            color: '#961cff',
+                            offset: "0",
+                            opacity: '1',
+                        },
+                        {
+                            color: '#c3ffb0',
                             offset: "100",
                             opacity: '0.6',
                         },
                     ]
                 },
                 instrument: '',
-                fileList: [{
-                    name: 'food.jpeg',
-                    url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-                }, {
-                    name: 'food2.jpeg',
-                    url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-                }]
+                fileList: []
             };
+
+
         },
         methods: {
+
 
             //选择乐器
             //小提琴
@@ -693,52 +735,123 @@
                 this.musicArgs.instrument = 'guitar'
                 //console.log(this.instrument)
             },
+            play1() {
+                this.$refs.audio1.play()
+            },
+            pause1() {
+                this.$refs.audio1.pause()
+            },
+            play2() {
+                this.$refs.audio2.play()
+            },
+            pause2() {
+                this.$refs.audio2.pause()
+            },
+            download1(){
+                this.downloadUrl1='http://localhost:8182/GenMusic/'+this.musicArgs.fileUrl.slice(this.musicArgs.fileUrl.lastIndexOf('/') + 1, this.musicArgs.fileUrl.lastIndexOf('.')) + '.wav'
+                window.open(this.downloadUrl1)
+            },
+            download2(){
+                this.downloadUrl2='http://localhost:8182/ReGenMusic/'+this.musicArgs.fileUrl.slice(this.musicArgs.fileUrl.lastIndexOf('/') + 1, this.musicArgs.fileUrl.lastIndexOf('.')) + '.wav'
+                window.open(this.downloadUrl2)
+            },
 
             genMusic() {
                 //判断音乐生成参数是否含有空值
-                if (this.musicArgs.fileUrl===''){
+                if (this.musicArgs.fileUrl === '') {
                     //alert("请先上传文件")
                     this.$message.error("请先上传文件")
                 }
-                if (this.musicArgs.instrument===''){
+                if (this.musicArgs.instrument === '') {
                     this.$message.error("请先选择演奏乐器")
                 }
-                if (this.musicArgs.pitchOff===''||this.musicArgs.speedRate===''){
+                if (this.musicArgs.pitchOff === '' || this.musicArgs.speedRate === '') {
                     this.$message.error("请选择生成参数")
                 }
                 console.log(this.musicArgs)
-                this.request.post("http://localhost:8182/creation/genMusic",this.musicArgs).then((resp)=>{
-                    console.log(resp)
+                this.showGenMusicProgress = true;
+                this.genMusicSlot = "正在生成中"
+                this.request.post("http://localhost:8182/creation/genMusic", this.musicArgs).then((resp) => {
+                    //console.log(resp)
                 })
                 //如果进度未满
-                if (this.percent!=100){
-                    //发送定时请求 刷新进度条进度
-                    var timer = setInterval(()=>{
-                        this.request.post("http://localhost:8182/creation/flushPercent").then((resp)=>{
-                            console.log(resp)
-                            this.percent=resp
-                        })
-                    },500)
-                }
-                if (this.percent===100){
-                    //如果进度已满，则停止计时轮询
-                    clearInterval(timer);
-                    //查询是否结束生成 返回生成wav的路径
-                    this.request.post("http://localhost:8182/creation/flushPercent").then((resp)=>{
-                        console.log(resp)
-                        this.percent=resp
+                //发送定时请求 刷新进度条进度
+
+                var timer = setInterval(() => {
+                    this.request.post("http://localhost:8182/creation/flushPercent").then((resp) => {
+                        //console.log(resp)
+                        this.genMusicPercent = resp.data;
                     })
-                }
+                    if (this.genMusicPercent === '100') {
+                        console.log("=====进度条已满，请求表达控制参数=====")
+                        //如果进度已满，则停止计时轮询
+                        clearInterval(timer)
+                        this.genMusicPercent = 0
+                        this.showGenMusicProgress = false
+                        this.isGenMusic = true
+                        //console.log(this.genMusicUrl)
+                        //将生成的表达控制参数返回表格
+                        //延时3s 异步进行
+                        console.log("======生成完毕====")
+                        setTimeout(() => {
+                            //alert("====等待5s，请求表达控制参数====")
+                            this.requestForArgs()
+                        }, 1500)
+
+                    }
+                }, 1000)
 
 
             },
-            reGenMusic(){
+            requestForArgs() {
+                this.request.post('http://localhost:8182/creation/conditioningFindAll').then((resp) => {
+                    console.log("======延时1.5s，请求表达控制参数=====")
+                    if (resp.code === "200") {
+                        //成功获取数据
+                        console.log(resp.data)
+                        this.tableData = resp.data
+                    } else {
+                        this.$message.error(resp.msg)
+                    }
+                    // console.log('E:/midi2music/music/GenMusic/'
+                    //     + this.musicArgs.fileUrl.slice(this.musicArgs.fileUrl.lastIndexOf('/')+1,this.musicArgs.fileUrl.lastIndexOf('.'))+'.wav')
+                    this.genMusicUrl = require('E:/midi2music/music/GenMusic/'
+                        + this.musicArgs.fileUrl.slice(this.musicArgs.fileUrl.lastIndexOf('/') + 1, this.musicArgs.fileUrl.lastIndexOf('.')) + '.wav')
+                })
+            },
+            reGenMusic() {
                 //判断音乐生成参数是否含有空值
-                //this.tableData =
-                console.log(this.tableData)
-                this.request.post("http://localhost:8182/creation/reGenMusic",this.tableData,this.musicArgs).then((resp)=>{
+                this.showReGenMusicProgress = true;
+                this.reGenMusicSlot = "正在生成中"
+                console.log("==========\n", this.tableData)
+                console.log("==========\n", this.musicArgs)
+                this.request.post("http://localhost:8182/creation/editTable", this.tableData).then((resp) => {
                     console.log(resp)
                 })
+                this.request.post("http://localhost:8182/creation/reGenMusic", this.musicArgs).then((resp) => {
+                    console.log(resp)
+                })
+                //如果进度未满
+                //发送定时请求 刷新进度条进度
+                var timer = setInterval(() => {
+                    this.request.post("http://localhost:8182/creation/flushPercent").then((resp) => {
+                        //console.log(resp)
+                        this.reGenMusicPercent = resp.data;
+                    })
+                    if (this.reGenMusicPercent === '100') {
+                        console.log("=====进度条已满，请求表达控制参数=====")
+                        //如果进度已满，则停止计时轮询
+                        clearInterval(timer)
+                        this.reGenMusicPercent = 0
+                        this.showReGenMusicProgress = false
+                        this.isReGenMusic = true
+
+                        console.log('E:/midi2music/music/ReGenMusic/'
+                            + this.musicArgs.fileUrl.slice(this.musicArgs.fileUrl.lastIndexOf('/') + 1, this.musicArgs.fileUrl.lastIndexOf('.')) + '.wav')
+                        this.reGenMusicUrl = require('E:/midi2music/music/ReGenMusic/'
+                            + this.musicArgs.fileUrl.slice(this.musicArgs.fileUrl.lastIndexOf('/') + 1, this.musicArgs.fileUrl.lastIndexOf('.')) + '.wav')
+                    }
+                }, 1000)
             },
             //文件上传成功的回调函数
             handleSuccess(item, response, file) {
@@ -770,9 +883,10 @@
 </script>
 
 <style scoped>
-/*vxe-table 表格样式*/
+
+    /*vxe-table 表格样式*/
     /*修改表头背景色*/
-    .vxe-table--header-wrapper,.vxe-header--row,.vxe-table--header{
+    .vxe-table--header-wrapper, .vxe-header--row, .vxe-table--header {
         background-color: #2C3846;
     }
 
@@ -781,10 +895,12 @@
     .vxe-table .vxe-body--column:not(.col--ellipsis), .vxe-table .vxe-footer--column:not(.col--ellipsis), .vxe-table .vxe-header--column:not(.col--ellipsis) {
         padding: 5px 0;
     }
+
     /*调整表格 单元格背景颜色*/
     .vxe-table .vxe-table--body-wrapper, .vxe-table .vxe-table--footer-wrapper {
         background-color: #ffd967;
     }
+
     /*调整表格文字及位置*/
     .vxe-table .vxe-body--column, .vxe-table .vxe-footer--column, .vxe-table .vxe-header--column {
         position: relative;
@@ -792,6 +908,7 @@
         text-align: center;
         color: #ffffff;
     }
+
     /*调整表头首行  line 的颜色*/
     .vxe-table .vxe-table--header-wrapper .vxe-table--header-border-line {
         position: absolute;
@@ -801,8 +918,8 @@
         border-bottom: 1px solid #e8eaec;
     }
 
-    .vxe-body--row.row--hover{
-        background-color: rgba(255,255,255,0.3) !important;
+    .vxe-body--row.row--hover {
+        background-color: rgba(255, 255, 255, 0.3) !important;
     }
 
     .u-section-1 {

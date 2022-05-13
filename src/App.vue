@@ -194,5 +194,41 @@
     /*    font-size: 1.2rem;*/
     /*}*/
 
+    /*vxe-table 表格样式*/
+    /*修改表头背景色*/
+    .vxe-table--header-wrapper, .vxe-header--row, .vxe-table--header {
+        background-color: #29262a;
+    }
+    .vxe-body--column {
+        background-color: #534c54;
+    }
+
+    /*调整表格 单元格背景颜色*/
+    .vxe-table .vxe-table--body-wrapper, .vxe-table .vxe-table--footer-wrapper {
+        background-color: #29262a;
+    }
+
+    /*调整表格文字及位置*/
+    .vxe-table .vxe-body--column, .vxe-table .vxe-footer--column, .vxe-table .vxe-header--column {
+        position: relative;
+        line-height: 24px;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    /*调整表头首行  line 的颜色*/
+    .vxe-table .vxe-table--header-wrapper .vxe-table--header-border-line {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 0;
+        border-bottom: 1px solid #e8eaec;
+    }
+
+    .vxe-body--row.row--hover {
+        background-color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+
 
 </style>
