@@ -2,10 +2,10 @@
     <nav>
         <router-link to="/" class="nav_home">Home</router-link>
         |
-        <router-link to="/about" class="nav_gallery">About</router-link>
-        |
-        <router-link to="/art" class="nav_art">Art</router-link>
-        |
+<!--        <router-link to="/about" class="nav_gallery">About</router-link>-->
+<!--        |-->
+<!--        <router-link to="/art" class="nav_art">Art</router-link>-->
+<!--        |-->
         <router-link to="/creation" class="nav_art">Creation</router-link>
 <!--        <div class="u-text-login">-->
 <!--            <a href="/login" class="u-text-login" data-page-id="1750248">登录-->

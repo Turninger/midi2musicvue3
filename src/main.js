@@ -13,6 +13,7 @@ import request from "@/utils/request";
 import 'xe-utils'
 import VXETable from 'vxe-table'
 import 'vxe-table/lib/style.css'
+// import WaveSurfer from 'wavesurfer.js';
 
 
 

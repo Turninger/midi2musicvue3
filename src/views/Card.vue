@@ -7,52 +7,23 @@
                 :bar-color="['#f00', '#ff0', '#0f0']"
                 canv-fill-color="#000"
                 :caps-height="2"
-                v-model:audio-src="audioViolin"
+                :audio-src="audioViolin"
         ></av-bars>
         <el-button @click="changeAudio">切换音频</el-button>
 
         <audio controls ref="singeBox"></audio>
-        <audio
-                v-model:src="audioViolin"
+        <audio ref="audioSingleBox"
+                :src="audioViolin"
                 controls="controls">
 
         </audio>
+        <button @click="play">播放</button>
+        <button @click="pause">暂停</button>
+
     </div>
 
 
     <div>
-<!--        <ve-progress-->
-<!--                :data="circles"-->
-<!--                :progress="progress"-->
-<!--                :angle="-90"-->
-<!--                color="blue"-->
-<!--                :colorFill="colorFillGradient"-->
-<!--                emptyColor="#8ec5fc"-->
-<!--                :emptyColorFill="emptyColorFillGradient"-->
-<!--                :size="300"-->
-<!--                :thickness="10"-->
-<!--                emptyThickness="10%"-->
-<!--                lineMode="in 10"-->
-<!--                :legend="true"-->
-<!--                :legendValue="180"-->
-<!--                :legendFormatter="({currentValue}) => new Intl.NumberFormat('de-DE').format(currentValue)"-->
-<!--                legendClass="legend-custom-style"-->
-<!--                dash="60 0.9"-->
-<!--                animation="reverse 700 400"-->
-<!--                :noData="false"-->
-<!--                :loading="false"-->
-<!--                fontColor="white"-->
-<!--                :half="false"-->
-<!--                :gap="10"-->
-<!--                dot="10 blue"-->
-<!--                reverse-->
-<!--                fontSize="5rem">-->
-
-<!--            <span slot="legend-value">/200</span>-->
-<!--            <p slot="legend-caption">GOOD JOB</p>-->
-
-<!--        </ve-progress>-->
-
         <ve-progress
                 :progress="percent"
                 :color="gradient"
@@ -67,11 +38,11 @@
         </el-button>
 
         <ve-progress
-                :progress="96"
-                :color="gradient"
-                :thickness="10"
-                animation="bounce 1000"
-                loading="true"
+            :progress="96"
+            :color="gradient"
+            :thickness="10"
+            animation="bounce 1000"
+            loading="true"
         >
             <span slot="legend-value">/200</span>
             <p slot="legend-caption">{{percentages}}</p>
@@ -79,7 +50,7 @@
     </div>
 
     <div>
-        <vxe-table border :data="tableData">
+        <vxe-table class="mytable-style" border :data="tableData">
             <vxe-column field="id" title="ID" width="60"></vxe-column>
             <vxe-column field="name" title="Name">
                 <template #default="{ row }">
@@ -176,10 +147,11 @@
     import 'nprogress/nprogress.css'
     import {VeProgress} from "vue-ellipse-progress";
     // import veProgress from "vue-ellipse-progress";
-    import audioViolin from '../../public/audio/violin/ode_to_joy.wav'
-    import audioGuitar from '../../public/audio/guitar/ode_to_joy.wav'
+    // import audioViolin from '../../public/audio/violin/ode_to_joy.wav'
+    // import audioGuitar from '../../public/audio/guitar/ode_to_joy.wav'
     import Header from "../components/Header";
     import request from "../utils/request";
+    import WaveSurfer from 'wavesurfer.js';
 
 
     NProgress.start()// 开始
@@ -193,12 +165,16 @@
     export default {
         name: "Card",
         //引入组件
-        components:{VeProgress,Header},
+        components:{VeProgress,Header,WaveSurfer},
 
 
 
         data() {
             return {
+                audioSingBox:this.$refs.audioSingleBox,
+
+                wavesurfer: null,
+
                 tableData: [
                     {id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc'},
                     {id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou'},
@@ -211,8 +187,8 @@
 
                 selectedValue: '',
                 region: '',
-                audioViolin:audioViolin,
-                audioGuitar:audioGuitar,
+                audioViolin:null,
+                audioGuitar:require('E:\\midi2music\\music\\GenMusic\\c6882f4d23ab45f29d83538b71b27c02.wav'),
                 percent:5,
 
                 gradient: {
@@ -305,11 +281,11 @@
             },
             // 播放音频
             play() {
-                this.$refs.audio.play()
+                this.$refs.audioSingleBox.play()
             },
             // 暂停音频
             pause() {
-                this.$refs.audio.pause()
+                this.$refs.audioSingleBox.pause()
             },
             // 当音频播放
             onPlay() {
@@ -357,6 +333,11 @@
 </script>
 
 <style scoped>
+
+
+
+
+
     .u-section-1 {
         background-image: url("../../public/images/pexels-photo-4425132.jpeg");
         background-position: 50% 50%;
